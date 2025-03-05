@@ -1,0 +1,49 @@
+{
+  "books": [
+    {
+      "title": "The Midnight Library",
+      "author": "Matt Haig",
+      "category": "Fiction",
+      "isbn": "9780525559474",
+      "createdAt": "12 March 2022, 8:35AM",
+      "modifiedAt": "13 March 2022, 1:48PM",
+      "active": true
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "category": "Self-Help",
+      "isbn": "9780735211292",
+      "createdAt": "5 April 2021, 10:15AM",
+      "modifiedAt": "7 April 2021, 2:30PM",
+      "active": false
+    },
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "category": "Science Fiction",
+      "isbn": "9780441013593",
+      "createdAt": "18 June 2020, 9:00AM",
+      "modifiedAt": "20 June 2020, 4:45PM",
+      "active": true
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt & David Thomas",
+      "category": "Programming",
+      "isbn": "9780135957059",
+      "createdAt": "25 September 2019, 3:20PM",
+      "modifiedAt": "27 September 2019, 5:10PM",
+      "active": false
+    },
+    {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "category": "Finance",
+      "isbn": "9780857197689",
+      "createdAt": "10 January 2023, 7:45AM",
+      "modifiedAt": "12 January 2023, 11:20AM",
+      "active": true
+    }
+  ]
+}
