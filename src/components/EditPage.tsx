@@ -5,6 +5,7 @@ import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
 import {formatDate} from "../utils/formatDate.ts";
+import {addBook} from "../utils/addBook.ts";
 
 export const EditPage = () => {
     const {id} = useParams();
