@@ -8,7 +8,7 @@ export const useGetBookDetails = (id: string) => {
             title: '',
             author: '',
             id: '',
-            category: '',
+            category: 'fiction',
             createdAt: '',
             modifiedAt: '',
             active: true,
