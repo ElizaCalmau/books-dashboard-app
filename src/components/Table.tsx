@@ -1,12 +1,11 @@
 import {TABLE_HEADERS} from "../constants.ts";
 import {useGetBooks} from "../hooks/useGetBooks.ts";
-import Button from "./Button.tsx";
-import {Book} from "../types";
-import {editBook} from "../utils/editBook.ts";
+import {Button} from "./Button.tsx";
 import {deleteBook} from "../utils/deleteBook.ts";
+import {ButtonLink} from "./ButtonLink.tsx";
 
 export const Table = () => {
-    const {books, error, loading} = useGetBooks();
+    const {books, error, loading} = useGetBooks();//TODO: add suspense while loading and create a fallback component, add tooltip for error
 
     return (
         <>
@@ -22,14 +21,13 @@ export const Table = () => {
                 <tbody>
                 {books.length > 0 && books.map((book) => {
                     const {id, ...rest} = book;
-                    console.log(id)
                    return ( <tr key={id}>
                         {Object.values(rest).map((item) => (
                             <td key={id}>
                                 {item}
                             </td>
                         ))}
-                        <td><Button text='Edit' onClick={() => editBook(id)}/>
+                        <td><ButtonLink text='Edit' id={id}/>
                         </td>
                         <td><Button text='Delete' onClick={() => deleteBook(id)}/></td>
                     </tr>)
