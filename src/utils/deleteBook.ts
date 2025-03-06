@@ -12,6 +12,7 @@ export const deleteBook = async (id: string) => {
     })
         .then(updatedBook => {
             console.log('Deleted Book:', updatedBook);
+            window.location.reload();
         })
         .catch(error => {
             console.error('Error:', error);
