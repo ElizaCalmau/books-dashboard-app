@@ -9,21 +9,32 @@ export const useGetBookDetails = (id: string) => {
             author: '',
             id: '',
             category: 'fiction',
+            isbn: 0,
             createdAt: '',
             modifiedAt: '',
             active: true,
-            isbn: 0}
+        }
     );
-
+    const [isNewBook, setIsNewBook] = useState<boolean>(false);
     useEffect(() => {
+
             const fetchData = async () => {
-                const data = await getBookDetails({endpoint: 'books', param: id});
-                console.log(data)
-                setBookDetails(data);
+                try {
+                    const data = await getBookDetails({ endpoint: 'books', param: id });
+
+                    if (!data || Object.keys(data).length === 0) {
+                        throw new Error('Book not found');
+                    }
+                    setBookDetails(data);
+                    setIsNewBook(false);
+                } catch (error) {
+                    console.log(error);
+                    setIsNewBook(true);
+                }
             };
             fetchData();
 
 
     }, [id]);
-    return {bookDetails, setBookDetails};
+    return {bookDetails, setBookDetails, isNewBook, setIsNewBook};
 };
