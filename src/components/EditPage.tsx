@@ -4,12 +4,10 @@ import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
-
 import {formatDate} from "../utils/formatDate.ts";
 
 export const EditPage = () => {
     const {id} = useParams();
-    const {bookDetails, setBookDetails} = useGetBookDetails(id || '');
 
     const {bookDetails, setBookDetails, isNewBook} = useGetBookDetails(id || '');
     const submitButton = isNewBook ? 'Add Book' : 'Update Book';
@@ -23,15 +21,26 @@ export const EditPage = () => {
             id: id || prev.id,
         }));
     }
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         try {
             if(id){
                 const existingBook = await fetch(`http://localhost:3000/books/${id}`);
                 if (existingBook.ok) {
-                    await editBook({ id , data: bookDetails });
+                    const updatedBookDetails = {
+                        ...bookDetails,
+                        modifiedAt: formatDate(new Date()),
+
+                    };
+                    await editBook({ id , data: updatedBookDetails });
+                    setBookDetails(updatedBookDetails);
                 } else {
-                    await addBook({ data: bookDetails });
+                    const updatedBookDetails = {
+                        ...bookDetails,
+                        createdAt: formatDate(new Date()),
+
+                    };
+                    await addBook({data: updatedBookDetails});
+                    setBookDetails(updatedBookDetails);
                 }
             }
         } catch (error) {
