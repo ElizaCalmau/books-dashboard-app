@@ -19,12 +19,19 @@ export const EditPage = () => {
             id: id || prev.id,
         }));
     }
-    const handleSubmit = (e ) => {
-        e.preventDefault();
-        if(id){
-            editBook({id, data: bookDetails})
+    const handleSubmit = async (e ) => {
+        try {
+            if(id){
+                const existingBook = await fetch(`http://localhost:3000/books/${id}`);
+                if (existingBook.ok) {
+                    await editBook({ id , data: bookDetails });
+                } else {
+                    await addBook({ data: bookDetails });
+                }
+            }
+        } catch (error) {
+            console.error("Error checking if book exists:", error);
         }
-
     }
 
     return (
