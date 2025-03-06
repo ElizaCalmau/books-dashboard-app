@@ -5,5 +5,5 @@
 * **npm install json-server** // to create a server 
 * **npm install**  // to install all required dependencies
 * **npx json-server db.json** // to run the server
-* **npm run dev** // to run application
+* **npm run dev** // run this command in new terminal window to launch the application  
 

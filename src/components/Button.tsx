@@ -4,7 +4,7 @@ interface Prop {
     onClick: () => void;
 }
 
-const Button: React.FC<Prop> = ({text, onClick}) => {
+export const Button: React.FC<Prop> = ({text, onClick}) => {
     return (
         <div onClick={onClick}>
             {text}
@@ -12,4 +12,3 @@ const Button: React.FC<Prop> = ({text, onClick}) => {
     );
 };
 
-export default Button;
