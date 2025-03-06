@@ -2,7 +2,7 @@ import {editBook} from "../utils/editBook.ts";
 import {useParams} from "react-router";
 import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
-import React from "react";
+import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
 
 
