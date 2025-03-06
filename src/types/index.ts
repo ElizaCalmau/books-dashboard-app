@@ -3,7 +3,7 @@ export interface Book {
     title: string,
     author: string,
     category: string,
-    isbn: string,
+    isbn: number,
     createdAt: string,
     modifiedAt: string,
     active: boolean,
