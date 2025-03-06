@@ -3,7 +3,7 @@ import {useParams} from "react-router";
 import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React from "react";
-
+import {categoryOptions} from "../constants.ts";
 
 
 export const EditPage = () => {
@@ -20,11 +20,7 @@ export const EditPage = () => {
         }
 
     }
-    const categoryOptions = [
-        { label: 'Fiction', value: 'fiction' },
-        { label: 'Non-fiction', value: 'non-fiction' },
-        { label: 'Science', value: 'science' },
-    ];
+
     return (
         <>
             <form onSubmit={handleSubmit}>
