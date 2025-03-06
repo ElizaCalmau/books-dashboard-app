@@ -5,10 +5,14 @@ import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
 
+import {formatDate} from "../utils/formatDate.ts";
 
 export const EditPage = () => {
     const {id} = useParams();
     const {bookDetails, setBookDetails} = useGetBookDetails(id || '');
+
+    const {bookDetails, setBookDetails, isNewBook} = useGetBookDetails(id || '');
+    const submitButton = isNewBook ? 'Add Book' : 'Update Book';
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setBookDetails((prev) => ({
