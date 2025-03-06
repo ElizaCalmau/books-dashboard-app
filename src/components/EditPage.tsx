@@ -11,7 +11,13 @@ export const EditPage = () => {
     const {bookDetails, setBookDetails} = useGetBookDetails(id || '');
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setBookDetails({...bookDetails, [e.target.name]: e.target.value});//TODO: created At/ modified At
+        setBookDetails((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+            createdAt: formatDate(new Date()),
+            modifiedAt: formatDate(new Date()),
+            id: id || prev.id,
+        }));
     }
     const handleSubmit = (e ) => {
         e.preventDefault();
