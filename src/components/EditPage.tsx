@@ -46,7 +46,6 @@ export const EditPage = () => {
 
                     };
                     await addBook({data: updatedBookDetails});
-                    setBookDetails(updatedBookDetails);
                 }
             }
         } catch (error) {
