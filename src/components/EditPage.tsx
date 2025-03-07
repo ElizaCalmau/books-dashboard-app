@@ -22,8 +22,6 @@ export const EditPage = () => {
         setBookDetails((prev: Book) => ({
             ...prev,
             [e.target.name]: e.target.value,
-            createdAt: formatDate(new Date()),
-            modifiedAt: formatDate(new Date()),
             id: id || prev.id,
         }));
     }
