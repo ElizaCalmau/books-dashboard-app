@@ -1,6 +1,3 @@
-import {useEffect, useState} from "react";
-import {Book} from "../types";
-import {getBookDetails} from "../utils/getBookDetails.ts";
 import {useEffect} from "react";
 
 import {getBookById} from "../utils/bookService.ts";
@@ -10,11 +7,8 @@ import {initialBook} from "../constants.ts";
 export const useGetBookDetails = (id: string) => {
     const {setIsNewBook, setBookDetails} = useBookContext()
     useEffect(() => {
-
             const fetchData = async () => {
                 try {
-                    const data = await getBookDetails({ endpoint: 'books', param: id });
-
                     const data = await getBookById(id);
                     setBookDetails(data);
                     setIsNewBook(false);
