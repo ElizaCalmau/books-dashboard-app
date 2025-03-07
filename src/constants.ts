@@ -1,5 +1,7 @@
 import {Category} from "./types";
 
+export const BASE_URL = 'http://localhost:3000/books/'
+
 export enum TABLE_HEADERS {
     TITLE = "Title",
     AUTHOR="Author",
