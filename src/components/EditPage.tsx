@@ -38,7 +38,6 @@ export const EditPage = () => {
 
                     };
                     await editBook({ id , data: updatedBookDetails });
-                    setBookDetails(updatedBookDetails);
                 } else {
                     const updatedBookDetails = {
                         ...bookDetails,
