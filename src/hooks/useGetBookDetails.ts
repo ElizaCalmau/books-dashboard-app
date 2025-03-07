@@ -30,6 +30,11 @@ export const useGetBookDetails = (id: string) => {
                 } catch (error) {
                     console.log(error);
                     setIsNewBook(true);
+                    setBookDetails((prev) => (
+                        {
+                            ...prev,
+                            initialBook
+                        }));
                 }
             };
             fetchData();
