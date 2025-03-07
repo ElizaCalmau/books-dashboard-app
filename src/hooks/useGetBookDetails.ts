@@ -15,8 +15,12 @@ export const useGetBookDetails = (id: string) => {
                     if (!data || Object.keys(data).length === 0) {
                         throw new Error('Book not found');
                     }
-                } catch (error) {
-                    console.log(error);
+                } catch (error: unknown) {
+                    if(typeof error === 'string') {
+                        setError({message: error, name: 'Error'});
+                    } if( error instanceof Error ) {
+                        setError(error)
+                    };
                     setIsNewBook(true);
                     setBookDetails((prev) => (
                         {
