@@ -74,11 +74,13 @@ export interface BooksListType {
 }
 
 
-interface InputField {
+export type InputType = "number" | "text" | "select";
+
+export interface InputField {
     name: string;
     value: string;
     label: string;
-    type: string;
+    type: InputType;
     placeholder?: string;
     required: boolean;
     options?: CategoryOption[];
