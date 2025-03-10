@@ -5,6 +5,8 @@ import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
 import React from "react";
+import React, {FormEvent} from "react";
+import {Book, categoryOptions, SUBMIT_BUTTON} from "../constants.ts";
 import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
@@ -17,6 +19,8 @@ export const EditPage = () => {
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     useGetBookDetails(id || '');
 
+    const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
+
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setBookDetails((prev: Book) => ({
             ...prev,
@@ -28,8 +32,6 @@ export const EditPage = () => {
         e.preventDefault();
         try {
             if(id){
-                const existingBook = await fetch(`http://localhost:3000/books/${id}`);
-                if (existingBook.ok) {
                 const existingBook = await getBookById(id);
                 if (existingBook) {
                     const updatedBookDetails: Book = {
