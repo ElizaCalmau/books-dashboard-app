@@ -86,11 +86,4 @@ export interface InputField {
     options?: CategoryOption[];
 }
 
-const {bookDetails} = useBookContext()
 
-export const inputFields: InputField[] = [
-    { name: "title", label: "Title", type: "text", placeholder: bookDetails.title, required: true, value: bookDetails.title },
-    { name: "author", label: "Author", type: "text", placeholder: bookDetails.author, required: true, value: bookDetails.author },
-    { name: "category", label: "Category", type: "select", options: categoryOptions, required: true, value: bookDetails.category },
-    { name: "isbn", label: "ISBN", type: "number", placeholder: "Enter ISBN", required: true, value: String(bookDetails.isbn) },
-];
