@@ -38,12 +38,12 @@ export const EditPage = () => {
                     };
                     await editBook({ id , data: updatedBookDetails });
                 } else {
-                    const updatedBookDetails = {
+                    const newBookDetails = {
                         ...bookDetails,
                         createdAt: formatDate(new Date()),
 
                     };
-                    await addBook({data: updatedBookDetails});
+                    await addBook({data: newBookDetails});
                 }
             }
         } catch (error) {
