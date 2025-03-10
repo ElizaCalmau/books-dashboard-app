@@ -2,9 +2,7 @@
 import {BASE_URL, Book} from "../constants.ts";
 
 export const getAllBooks = async () => {
-    console.log("loading getAllBooks");
-    const controller = new AbortController();
-    const response = await fetch(BASE_URL, { signal: controller.signal });
+    const response = await fetch(BASE_URL);
     if(!response.ok){
         throw new Error(`Failed to fetch data`);
     }
