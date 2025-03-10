@@ -1,24 +1,24 @@
-import {editBook} from "../utils/editBook.ts";
 import {useParams} from "react-router";
 import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
-import React, {FormEvent, useState} from "react";
-import {categoryOptions} from "../constants.ts";
-import React from "react";
 import React, {FormEvent} from "react";
-import {Book, categoryOptions, SUBMIT_BUTTON} from "../constants.ts";
+import {Book, InputField, SUBMIT_BUTTON, categoryOptions} from "../constants.ts";
 import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
 
+
 export const EditPage = () => {
     const {id} = useParams();
-
-    const {bookDetails, setBookDetails, isNewBook} = useGetBookDetails(id || '');
-    const submitButton = isNewBook ? 'Add Book' : 'Update Book';
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     useGetBookDetails(id || '');
 
+    const inputFields: InputField[] = [
+        { name: "title", label: "Title", type: "text", placeholder: bookDetails.title, required: true, value: bookDetails.title },
+        { name: "author", label: "Author", type: "text", placeholder: bookDetails.author, required: true, value: bookDetails.author },
+        { name: "category", label: "Category", type: "select", options: categoryOptions, required: true, value: bookDetails.category },
+        { name: "isbn", label: "ISBN", type: "number", placeholder: "Enter ISBN", required: true, value: String(bookDetails.isbn) },
+    ];
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -44,7 +44,6 @@ export const EditPage = () => {
                     const newBookDetails = {
                         ...bookDetails,
                         createdAt: formatDate(new Date()),
-
                     };
                     await addBook({data: newBookDetails});
                 }
@@ -58,10 +57,13 @@ export const EditPage = () => {
         <>
             <form onSubmit={handleSubmit}>
 
-                <InputLabel onChange={handleChange} name="title" label="Title:" placeholder={bookDetails.title} value={bookDetails.title} type='string'/>
-                <InputLabel onChange={handleChange} name="author" label="Author:" placeholder={bookDetails.author} value={bookDetails.author} type='string'/>
-                <InputLabel onChange={handleChange} name="category" label="Category:" value={bookDetails.category} options={categoryOptions} />
-                <InputLabel onChange={handleChange} name="isbn" label="ISBN:" placeholder={String(bookDetails.isbn)} value={bookDetails.isbn} type='number'/>
+                {inputFields.map((field: InputField) => {
+                    return (
+                        <InputLabel key={id} field={field} onChange={(e) => handleChange(e)}/>
+                    )
+                }
+
+                )}
                 <button type="submit">{submitButton}</button>
             </form>
         </>
