@@ -1,9 +1,10 @@
-import {Book} from "../types";
-import {BASE_URL} from "../constants.ts";
+
+import {BASE_URL, Book} from "../constants.ts";
 
 export const getAllBooks = async () => {
-
-    const response = await fetch(BASE_URL);
+    console.log("loading getAllBooks");
+    const controller = new AbortController();
+    const response = await fetch(BASE_URL, { signal: controller.signal });
     if(!response.ok){
         throw new Error(`Failed to fetch data`);
     }
@@ -18,7 +19,6 @@ export const getBookById = async (param: string | number) => {
         throw new Error(`Failed to fetch data from ${BASE_URL}${param}`);
     }
     return response.json();
-
 }
 
 export const addBook = async ({data} : {data: Book}) => {
