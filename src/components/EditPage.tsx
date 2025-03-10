@@ -6,8 +6,7 @@ import React, {FormEvent, useState} from "react";
 import {categoryOptions} from "../constants.ts";
 import React from "react";
 import {formatDate} from "../utils/formatDate.ts";
-import {addBook} from "../utils/addBook.ts";
-import {addBook, editBook} from "../utils/bookService.ts";
+import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
 
 export const EditPage = () => {
@@ -31,6 +30,8 @@ export const EditPage = () => {
             if(id){
                 const existingBook = await fetch(`http://localhost:3000/books/${id}`);
                 if (existingBook.ok) {
+                const existingBook = await getBookById(id);
+                if (existingBook) {
                     const updatedBookDetails: Book = {
                         ...bookDetails,
                         modifiedAt: formatDate(new Date()),
