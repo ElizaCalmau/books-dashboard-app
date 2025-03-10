@@ -1,5 +1,4 @@
 import React from "react";
-import {useBookContext} from "./context/BookContext.tsx";
 
 export const BASE_URL = 'http://localhost:3000/books/'
 
@@ -12,11 +11,11 @@ export enum TABLE_HEADERS {
     MODIFIED_AT="Modified At",
     ACTIVE="Active",
 }
+export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller';
 
-export const categoryOptions: {label: string, value: Category}[] = [
-interface CategoryOption {
+export interface CategoryOption {
     label: string;
-    value: Category;
+    value: CategoryType;
 }
 
 export const categoryOptions: CategoryOption[] = [
@@ -32,7 +31,7 @@ export interface Book {
     id: string;
     title: string,
     author: string,
-    category: Category,
+    category: CategoryType,
     isbn: number,
     createdAt: string,
     modifiedAt: string,
@@ -43,7 +42,7 @@ export const initialBook = {
     id: "",
     title: "",
     author: "",
-    category: 'fiction' as Category,
+    category: 'fiction' as CategoryType,
     isbn: 0,
     createdAt: "",
     modifiedAt: "",
@@ -57,7 +56,7 @@ export interface BookContextType {
         id: string;
         title: string;
         author: string;
-        category: Category;
+        category: CategoryType;
         isbn: number;
         createdAt: string;
         modifiedAt: string;
@@ -74,7 +73,6 @@ export interface BooksListType {
     setError: (err: Error) => void;
 }
 
-export type Category = 'fiction' | 'finance' | 'science' | 'thriller';
 
 interface InputField {
     name: string;
@@ -84,7 +82,6 @@ interface InputField {
     placeholder?: string;
     required: boolean;
     options?: CategoryOption[];
-    onChange?: (value: string) => void;
 }
 
 const {bookDetails} = useBookContext()
