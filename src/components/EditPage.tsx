@@ -25,7 +25,8 @@ export const EditPage = () => {
             id: id || prev.id,
         }));
     }
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
         try {
             if(id){
                 const existingBook = await fetch(`http://localhost:3000/books/${id}`);
