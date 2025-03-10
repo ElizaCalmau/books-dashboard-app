@@ -1,4 +1,4 @@
-import {Category} from "./types";
+import React from "react";
 
 export const BASE_URL = 'http://localhost:3000/books/'
 
@@ -11,7 +11,6 @@ export enum TABLE_HEADERS {
     MODIFIED_AT="Modified At",
     ACTIVE="Active",
 }
-
 
 export const categoryOptions: {label: string, value: Category}[] = [
     { label: 'Fiction', value: 'fiction' },
