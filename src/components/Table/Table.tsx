@@ -1,17 +1,13 @@
 import {Book, TABLE_HEADERS} from "../../constants.ts";
-import {useGetBooks} from "../../hooks/useGetBooks.ts";
 import {Button} from "../Button.tsx";
 import {deleteBook} from "../../utils/bookService.ts";
 import {ButtonLink} from "../ButtonLink.tsx";
 import styles from './Table.module.scss'
-import {useBooksListContext} from "../../context/BooksListContext.tsx";
 import {Loading} from "../Loading.tsx";
 
 
-export const Table = () => {
-    useGetBooks();
-    const {booksList} = useBooksListContext();
-    if(booksList.length > 0){
+export const Table = ({books} : {books: Book[]}) => {
+    if(books.length > 0){
         return (
             <>
 
@@ -25,7 +21,7 @@ export const Table = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {booksList.length > 0 && booksList.map((book: Book) => {
+                    {books.length > 0 && books.map((book: Book) => {
                         const {id, ...rest} = book;
                         return ( <tr key={id}>
                             {Object.values(rest).map((item) => (
@@ -44,8 +40,6 @@ export const Table = () => {
                     })}
                     </tbody>
                 </table>
-
-
             </>
         );
     }
