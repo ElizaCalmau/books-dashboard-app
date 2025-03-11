@@ -81,6 +81,8 @@ export interface BookContextType {
 export interface BooksListType {
     booksList: Book[];
     setBooksList: React.Dispatch<React.SetStateAction<Book[]>>;
+    filter: FilterOption,
+    setFilter: React.Dispatch<React.SetStateAction<FilterOption>>;
     error: Error | undefined;
     setError: (err: Error) => void;
 }

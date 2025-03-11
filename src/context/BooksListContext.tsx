@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useContext, useState} from "react";
-import {Book, BooksListType,} from "../constants.ts";
+import {Book, BooksListType, FilterOption, filterOptions,} from "../constants.ts";
 
 export const BooksListContext = createContext<BooksListType | undefined>(undefined);
 
@@ -7,9 +7,10 @@ export const BooksListProvider = ({ children }: { children: ReactNode }) => {
 
     const [booksList, setBooksList] = useState<Book[] | []>([])
     const [error, setError] = useState<Error | undefined>(undefined);
+    const [filter, setFilter] = useState<FilterOption>(filterOptions[0]);
 
     return (
-        <BooksListContext.Provider value={{ booksList, setBooksList, error, setError}}>
+        <BooksListContext.Provider value={{ booksList, setBooksList, error, setError, filter, setFilter }}>
             {children}
         </BooksListContext.Provider>
 );
