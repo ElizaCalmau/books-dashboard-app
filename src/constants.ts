@@ -25,6 +25,18 @@ export const categoryOptions: CategoryOption[] = [
     { label: 'Thriller', value: 'thriller' },
 ];
 
+export interface FilterOption {
+    label: string;
+    value: string;
+}
+
+export const filterOptions: FilterOption[] = [
+    { label: 'Show All', value: 'all' },
+    { label: 'Show Active', value: 'active' },
+    { label: 'Show Deactivated', value: 'deactivated' },
+]
+
+
 export type SUBMIT_BUTTON = 'Add Book' | 'Update Book';
 
 export interface Book {
@@ -83,7 +95,10 @@ export interface InputField {
     type: InputType;
     placeholder?: string;
     required: boolean;
-    options?: CategoryOption[];
+    options?: CategoryOption[] | FilterOption[];
 }
 
-
+export interface SelectProps extends Omit<InputField, "label" | "placeholder" > {
+    onChange?: (value: React.ChangeEvent<HTMLSelectElement>) => void,
+    options: CategoryOption[] | FilterOption[];
+}
