@@ -4,7 +4,7 @@ import {deleteBook} from "../../utils/bookService.ts";
 import {ButtonLink} from "../ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
-
+import { v4 as uuidv4 } from 'uuid';
 
 export const Table = ({books} : {books: Book[]}) => {
     if(books.length > 0){
@@ -24,11 +24,13 @@ export const Table = ({books} : {books: Book[]}) => {
                     {books.length > 0 && books.map((book: Book) => {
                         const {id, ...rest} = book;
                         return ( <tr key={id}>
-                            {Object.values(rest).map((item) => (
-                                <td key={id}>
-                                    {item}
-                                </td>
-                            ))}
+                            {Object.values(rest).map((item) => {
+                                const itemId = uuidv4()
+                                    return(<td key={itemId}>
+                                            {item}
+                                        </td>)
+
+                            })}
                             <td>
                                 <ButtonLink text='Edit' id={id}/>
                             </td>
