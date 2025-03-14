@@ -2,7 +2,7 @@ import {useMemo} from "react";
 import {Book, FilterOption} from "../constants.ts";
 
 export const useFilterBooks = ({filter, booksList}: {filter: FilterOption, booksList: Book[]}) => {
-    const filteredBooks = useMemo(() => {
+    return useMemo(() => {
         if(booksList.length === 0) return;
         return booksList.filter((book: Book) => {
             if(filter.value === 'active'){
@@ -15,6 +15,4 @@ export const useFilterBooks = ({filter, booksList}: {filter: FilterOption, books
             }
         )
     }, [filter, booksList]);
-
-    return filteredBooks;
 }
