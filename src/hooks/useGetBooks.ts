@@ -1,27 +1,22 @@
-import {useEffect} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import {getAllBooks} from "../utils/bookService.ts";
-import {useBooksListContext} from "../context/BooksListContext.tsx";
+import {Book} from "../constants.ts";
 
 export function useGetBooks() {
-    const{setBooksList, setError} = useBooksListContext()
-    useEffect(() => {
-        const controller = new AbortController();
-        const fetchData = async () => {
-            try {
-                console.log('loading..., str 12')
-                const res = await getAllBooks();
-                setBooksList(res);
-            } catch (error: unknown) {
-                if (typeof error === 'string') {
-                    setError({message: error, name: 'Error'});
-                }
-                if (error instanceof Error) {
-                    setError(error)
-                }
-            }
+    const [booksList, setBooksList] = useState<Book[]>([])
+
+    const fetchData = useCallback(async () => {//function memoization prevents from calling on each render, only once if dependency array is empty and on-demand if there's some changes in deps array
+        try {
+            const res = await getAllBooks();
+            setBooksList(res);
+        } catch (error: unknown) {
+            throw new Error('error getBooks');
         }
+    }, [])
+
+    useEffect(() => {
         fetchData();
-        return () => controller.abort();
-    },
-        [])
+    }, []);
+
+    return useMemo(() => booksList, [booksList])
 }
