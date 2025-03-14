@@ -1,21 +1,20 @@
-import {useBooksListContext} from "../context/BooksListContext.tsx";
 import {useMemo} from "react";
-import {useGetBooks} from "./useGetBooks.ts";
+import {Book, FilterOption} from "../constants.ts";
 
-export const useFilterBooks = () => {
-    const {filter, booksList} = useBooksListContext();
-
+export const useFilterBooks = ({filter, booksList}: {filter: FilterOption, booksList: Book[]}) => {
     const filteredBooks = useMemo(() => {
-        if(filter.value === 'all') {
-            return booksList;
-        } else if(filter.value === 'active') {
-            return booksList.filter(book => book.active)
-        } else {
-            return booksList.filter(book => !book.active);
-        }
+        if(booksList.length === 0) return;
+        return booksList.filter((book: Book) => {
+            if(filter.value === 'active'){
+                return book.active;
+            } else if(filter.value === 'deactivated'){
+                return !book.active;
+            } else {
+                return book;
+            }
+            }
+        )
     }, [filter, booksList]);
 
-    useGetBooks()
-
-    return {filteredBooks};
+    return filteredBooks;
 }
