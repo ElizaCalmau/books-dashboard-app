@@ -6,6 +6,7 @@ import {Book, InputField, SUBMIT_BUTTON, categoryOptions} from "../constants.ts"
 import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
+import {validator} from "../utils/validator.ts";
 
 
 export const EditPage = () => {
@@ -14,14 +15,16 @@ export const EditPage = () => {
     useGetBookDetails(id || '');
 
     const inputFields: InputField[] = [
-        { name: "title", label: "Title", type: "text", placeholder: bookDetails.title, required: true, value: bookDetails.title },
-        { name: "author", label: "Author", type: "text", placeholder: bookDetails.author, required: true, value: bookDetails.author },
+        { name: "title", label: "Title", type: "text", placeholder: bookDetails.title, required: true, value: bookDetails.title, validationConditions: { min: 4, max: 20, errorMessage: "Title should not" }, },
+        { name: "author", label: "Author", type: "text", placeholder: bookDetails.author, required: true, value: bookDetails.author, validationConditions: { min: 4, max: 15, errorMessage: "Author's name should not" }, },
         { name: "category", label: "Category", type: "select", options: categoryOptions, required: true, value: bookDetails.category },
-        { name: "isbn", label: "ISBN", type: "number", placeholder: "Enter ISBN", required: true, value: String(bookDetails.isbn) },
+        { name: "isbn", label: "ISBN", type: "number", placeholder: "Enter ISBN", required: true, value: String(bookDetails.isbn), validationConditions: { min: 9, max: 10, errorMessage: "ISBN should not" }, },
     ];
+
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
 
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> ,field) => {
+        validator({value: e.target.value, conditions: field.validationConditions})
         setBookDetails((prev: Book) => ({
             ...prev,
             [e.target.name]: e.target.value,
@@ -56,13 +59,11 @@ export const EditPage = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-
                 {inputFields.map((field: InputField) => {
                     return (
-                        <InputLabel key={id} field={field} onChange={(e) => handleChange(e)}/>
+                        <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
                     )
                 }
-
                 )}
                 <button type="submit">{submitButton}</button>
             </form>
