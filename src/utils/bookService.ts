@@ -51,6 +51,22 @@ export const editBook = async ({id, data}:{id: string, data: Book}) => {
 
 }
 
+export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
+    console.log(id, isActivated);
+    await fetch(`${BASE_URL}${id}`, {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({active: isActivated}),
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update book');
+        }
+        return response.json();
+    })
+}
+
 export const deleteBook = async (id: string) => {
     await fetch(`${BASE_URL}${id}`, {
         method: "DELETE",
