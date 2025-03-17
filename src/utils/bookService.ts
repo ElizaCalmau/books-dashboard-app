@@ -14,7 +14,8 @@ export const getAllBooks = async () => {
 export const getBookById = async (param: string | number) => {
     const response = await fetch(`${BASE_URL}${param}`);
     if(!response.ok){
-        throw new Error(`Failed to fetch data from ${BASE_URL}${param}`);
+        console.log(`Failed to fetch data from ${BASE_URL}${param}`);
+        return null;
     }
     return response.json();
 }
@@ -35,7 +36,6 @@ export const addBook = async ({data} : {data: Book}) => {
 };
 
 export const editBook = async ({id, data}:{id: string, data: Book}) => {
-    console.log(id, data);
     await fetch(`${BASE_URL}${id}`, {
         method: "PATCH",
         headers: {
