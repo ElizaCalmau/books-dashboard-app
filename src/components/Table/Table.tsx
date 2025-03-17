@@ -1,12 +1,21 @@
 import {Book, TABLE_HEADERS} from "../../constants.ts";
 import {Button} from "../Button.tsx";
-import {deleteBook} from "../../utils/bookService.ts";
+import {deleteBook, getAllBooks, updateBookState} from "../../utils/bookService.ts";
 import {ButtonLink} from "../ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
 import { v4 as uuidv4 } from 'uuid';
+import {useBooksContext} from "../../context/BooksContext.tsx";
 
 export const Table = ({books} : {books: Book[]}) => {
+    const {setBooksList} = useBooksContext();
+
+     const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
+        await updateBookState({id, isActivated: !book.active});
+        const freshBooks = await getAllBooks();
+        setBooksList(freshBooks);
+     }
+     
     if(books.length > 0){
         return (
             <>
@@ -36,6 +45,12 @@ export const Table = ({books} : {books: Book[]}) => {
                             </td>
                             <td>
                                 <Button text='Delete' onClick={() => deleteBook(id)}/>
+                            </td>
+                            <td>
+                                <Button text={book.active ? 'Deactivate' : 'Activate'} onClick={()=>handleBookStateUpdate({id, book})}/>
+                            </td>
+                            <td>
+                                Book state: {book.active ? 'activated' : 'deactivated'}
                             </td>
                         </tr>)
 
