@@ -8,10 +8,10 @@ import { v4 as uuidv4 } from 'uuid';
 import {useBooksContext} from "../../context/BooksContext.tsx";
 
 export const Table = ({books} : {books: Book[]}) => {
-    const {setBooksList} = useBooksContext();
 
      const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
-        await updateBookState({id, isActivated: !book.active});
+         const {setBooksList} = useBooksContext();
+         await updateBookState({id, isActivated: !book.active});
         const freshBooks = await getAllBooks();
         setBooksList(freshBooks);
      }
@@ -33,10 +33,10 @@ export const Table = ({books} : {books: Book[]}) => {
                     {books.length > 0 && books.map((book: Book) => {
                         const {id, ...rest} = book;
                         return ( <tr key={id}>
-                            {Object.values(rest).map((item) => {
+                            {Object.values(rest).map((prop) => {
                                 const itemId = uuidv4()
                                     return(<td key={itemId}>
-                                            {item}
+                                            {prop}
                                         </td>)
 
                             })}
