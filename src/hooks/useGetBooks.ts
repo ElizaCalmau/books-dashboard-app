@@ -1,9 +1,9 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
+import {useCallback, useEffect, useMemo} from "react";
 import {getAllBooks} from "../utils/bookService.ts";
-import {Book} from "../constants.ts";
+import {useBooksContext} from "../context/BooksContext.tsx";
 
 export function useGetBooks() {
-    const [booksList, setBooksList] = useState<Book[]>([])
+    const {booksList, setBooksList} = useBooksContext()
 
     const fetchData = useCallback(async () => {//function memoization prevents from calling on each render, only once if dependency array is empty and on-demand if there's some changes in deps array
         try {
