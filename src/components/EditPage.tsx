@@ -7,12 +7,12 @@ import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
 import {validator} from "../utils/validator.ts";
-
+import { ToastContainer, toast } from 'react-toastify';
 import ValidationError from "./ValidationError/ValidationError.tsx";
 
 export const EditPage = () => {
     const {id} = useParams();
-    const [validationError, setValidationError] = useState<Record<string, string | null>>({});
+    const [validationErrors, setValidationErrors] = useState<Record<string, string | null>[]>([]);
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     useGetBookDetails(id || '');
 
@@ -29,6 +29,11 @@ export const EditPage = () => {
         const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
         if(validationError) {
             setValidationError({[e.target.name]: error})
+        if(validationErrors) {
+            setValidationErrors((prev) => ([
+                ...prev,
+                {[e.target.name]: error}
+        ]))
         }
         setBookDetails((prev: Book) => ({
             ...prev,
@@ -67,6 +72,13 @@ export const EditPage = () => {
                 {inputFields.map((field: InputField) => {
                     return (
                         <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
+                        <>
+                            <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
+                            {validationErrors.length > 0 && validationErrors.map((error) => (
+                                <ValidationError key={field.name} error={error[field.name]} />
+                            ))
+                            }
+                        </>
                     )
                 }
                 )}
