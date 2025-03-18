@@ -11,6 +11,7 @@ import {validator} from "../utils/validator.ts";
 
 export const EditPage = () => {
     const {id} = useParams();
+    const [validationError, setValidationError] = useState<Record<string, string | null>>({});
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     useGetBookDetails(id || '');
 
@@ -25,6 +26,7 @@ export const EditPage = () => {
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> ,field) => {
         validator({value: e.target.value, conditions: field.validationConditions})
+        const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
         setBookDetails((prev: Book) => ({
             ...prev,
             [e.target.name]: e.target.value,
