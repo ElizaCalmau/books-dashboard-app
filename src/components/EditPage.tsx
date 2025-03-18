@@ -8,6 +8,7 @@ import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
 import {validator} from "../utils/validator.ts";
 
+import ValidationError from "./ValidationError/ValidationError.tsx";
 
 export const EditPage = () => {
     const {id} = useParams();
