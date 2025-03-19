@@ -1,0 +1,16 @@
+.sidebarWrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  background: var(--sidebar-bg);
+
+  .navItem{
+    color: var(--button-icon-color);
+    :hover{
+      color: white;
+    }
+  }
+}
