@@ -30,14 +30,12 @@ export const EditPage = () => {
 
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field) => {
         const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
-        if(validationError) {
-            setValidationError({[e.target.name]: error})
-        if(validationErrors) {
-            setValidationErrors((prev) => ([
-                ...prev,
-                {[e.target.name]: error}
-        ]))
-        }
+        setValidationErrors((prevErrors) => {
+            if (prevErrors[e.target.name] !== error) {
+                return { ...prevErrors, [e.target.name]: error };
+            }
+            return prevErrors;
+        });
         setBookDetails((prev: Book) => ({
             ...prev,
             [e.target.name]: e.target.value,
