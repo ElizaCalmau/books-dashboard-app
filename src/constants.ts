@@ -55,7 +55,7 @@ export const initialBook = {
     title: "",
     author: "",
     category: 'fiction' as CategoryType,
-    isbn: 0,
+    isbn: null,
     createdAt: "",
     modifiedAt: "",
     active: true,
