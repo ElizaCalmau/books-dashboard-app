@@ -5,8 +5,8 @@ import App from './App.tsx'
 import { BrowserRouter, Routes, Route } from "react-router";
 import {EditPage} from "./components/EditPage.tsx";
 import {BookProvider} from "./context/BookContext.tsx";
-import {Header} from "./components/Header/Header.tsx";
 import {BooksProvider} from "./context/BooksContext.tsx";
+import {Sidebar} from "./components/Sidebar/Sidebar.tsx";
 
 
 
@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')!).render(
         <StrictMode>
                 <BookProvider>
                     <BooksProvider>
-                            <Header />
+                            <Sidebar />
                             <Routes>
                                 <Route path='/' element={<App />}/>
                                 <Route path=':id' element={<EditPage />} />
