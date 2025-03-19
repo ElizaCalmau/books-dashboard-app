@@ -90,6 +90,12 @@ export interface BooksListType {
 
 export type InputType = "number" | "text" | "select";
 
+export interface ValidationConditions {
+    min: number;
+    max: number;
+    errorMessage: string;
+}
+
 export interface InputField {
     name: string;
     value: string;
@@ -97,10 +103,11 @@ export interface InputField {
     type: InputType;
     placeholder?: string;
     required: boolean;
+    validationConditions?: ValidationConditions;
     options?: CategoryOption[] | FilterOption[];
 }
 
-export interface SelectProps extends Omit<InputField, "label" | "placeholder" > {
+export interface SelectProps extends Omit<InputField, "label" | "placeholder" | "validationConditions" > {
     onChange?: (value: React.ChangeEvent<HTMLSelectElement>) => void,
     options: CategoryOption[] | FilterOption[];
 }
