@@ -1,7 +1,7 @@
 import {useParams} from "react-router";
 import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
-import React, {FormEvent} from "react";
+import React, {FormEvent, useState} from "react";
 import {Book, InputField, SUBMIT_BUTTON, categoryOptions} from "../constants.ts";
 import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
@@ -17,6 +17,9 @@ export const EditPage = () => {
     }
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
+    const notify = (message: string) => {
+        toast(message);
+    }
     useGetBookDetails(id || '');
 
     const inputFields: InputField[] = [
@@ -44,6 +47,11 @@ export const EditPage = () => {
     }
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+        const hasErrors = Object.values(validationErrors).some(error => error !== null);
+        if(hasErrors) {
+            notify("Something went wrong");
+            return;
+        }
         try {
             if(id){
                 const existingBook = await getBookById(id);
