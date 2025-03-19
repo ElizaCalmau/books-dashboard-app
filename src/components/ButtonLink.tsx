@@ -1,16 +1,16 @@
-import React from "react";
+import React, {JSX} from "react";
 import {NavLink} from "react-router";
 
 interface Prop {
-    text: string,
-    id: string;
+    text?: string,
+    icon?: JSX.Element,
+    path: string;
 }
 
-export const ButtonLink: React.FC<Prop> = ({text, id}) => {
+export const ButtonLink: React.FC<Prop> = ({text, icon, path}) => {
     return (
-        <NavLink to={`/${id}`}> <div>
-            {text}
-        </div>
+        <NavLink to={path}>
+            {text || icon}
         </NavLink>
 
     );
