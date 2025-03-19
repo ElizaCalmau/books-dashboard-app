@@ -12,7 +12,10 @@ import ValidationError from "./ValidationError/ValidationError.tsx";
 
 export const EditPage = () => {
     const {id} = useParams();
-    const [validationErrors, setValidationErrors] = useState<Record<string, string | null>[]>([]);
+    interface ValidationErrors {
+        [fieldName: string]: string | null;
+    }
+    const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     useGetBookDetails(id || '');
 
