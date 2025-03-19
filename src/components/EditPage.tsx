@@ -2,7 +2,7 @@ import {useParams} from "react-router";
 import {InputLabel} from "./InputLabel.tsx";
 import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
-import {Book, InputField, SUBMIT_BUTTON, categoryOptions} from "../constants.ts";
+import {Book, InputField, SUBMIT_BUTTON, categoryOptions, ValidationErrors} from "../constants.ts";
 import {formatDate} from "../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
@@ -12,9 +12,7 @@ import ValidationError from "./ValidationError/ValidationError.tsx";
 
 export const EditPage = () => {
     const {id} = useParams();
-    interface ValidationErrors {
-        [fieldName: string]: string | null;
-    }
+
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     const notify = (message: string) => {

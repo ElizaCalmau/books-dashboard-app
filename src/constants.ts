@@ -60,6 +60,7 @@ export const initialBook = {
     modifiedAt: "",
     active: true,
 };
+
 export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
@@ -110,4 +111,8 @@ export interface InputField {
 export interface SelectProps extends Omit<InputField, "label" | "placeholder" | "validationConditions" > {
     onChange?: (value: React.ChangeEvent<HTMLSelectElement>) => void,
     options: CategoryOption[] | FilterOption[];
+}
+
+export interface ValidationErrors {
+    [fieldName: string]: string | null;
 }
