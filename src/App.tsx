@@ -18,7 +18,6 @@ function App() {
         <div className="mainWrapper">
             <Select options={filterOptions} name='filter' value={filter.value} onChange={(e) => handleFilterChange(e, setFilter)} type='select' required={true} />
             <Table books={filteredBooks}/>
-            <ButtonLink text='Add Book' path={id}/>
         </div>
   )
 }
