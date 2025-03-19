@@ -74,7 +74,7 @@ export const EditPage = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                {inputFields.map((field: InputField) => {
+                {bookDetails && inputFields.map((field: InputField) => {
                     return (
                         <>
                             <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
