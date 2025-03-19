@@ -4,12 +4,8 @@ export const validator = ({value, conditions}: {value: string, conditions: Valid
     const {min, max, errorMessage} = conditions;
 
     if (value.length < min) {
-        console.log(`${errorMessage} be less than ${min} characters.`);
-        return false;
+        return(`${errorMessage} be less than ${min} characters.`);
     } else if (value.length > max) {
-        console.log(`${errorMessage} be more than ${max} characters.`);
-        return false;
+        return (`${errorMessage} be more than ${max} characters.`);
     }
-
-    return true;
 };
