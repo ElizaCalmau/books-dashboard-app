@@ -1,4 +1,4 @@
-
+import './App.css';
 import {ButtonLink} from "./components/ButtonLink.tsx";
 import { v4 as uuidv4 } from 'uuid';
 import {Table} from "./components/Table/Table.tsx";
@@ -15,12 +15,13 @@ function App() {
     const filteredBooks = useFilterBooks({filter, booksList}) || [];
     const id = uuidv4();
     return (
-        <>
+        <div className="mainWrapper">
             <Select options={filterOptions} name='filter' value={filter.value} onChange={(e) => handleFilterChange(e, setFilter)} type='select' required={true} />
             <Table books={filteredBooks}/>
             <ButtonLink text='Add Book' id={id}/>
         </>
+        </div>
   )
 }
 
-export default App
+export default App;
