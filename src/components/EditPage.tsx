@@ -79,10 +79,7 @@ export const EditPage = () => {
                     return (
                         <>
                             <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
-                            {validationErrors.length > 0 && validationErrors.map((error) => (
-                                <ValidationError key={field.name} error={error[field.name]} />
-                            ))
-                            }
+                                <ValidationError key={field.value} error={validationErrors[field.name]} />
                         </>
                     )
                 }
