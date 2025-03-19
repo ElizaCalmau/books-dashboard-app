@@ -17,6 +17,8 @@
   --table-row-color: linear-gradient(to right, #434252, #3d3b5d);
   --table-header-color: #434252;
   --button-color: #646cff;
+  --sidebar-bg: linear-gradient(to bottom, #434452, #3d3b5d);
+  --button-icon-color: #c0ddff;
 }
 
 a {
