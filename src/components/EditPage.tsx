@@ -27,14 +27,16 @@ export const EditPage = () => {
     ];
 
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field) => {
-        const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
-        setValidationErrors((prevErrors) => {
-            if (prevErrors[e.target.name] !== error) {
-                return { ...prevErrors, [e.target.name]: error };
-            }
-            return prevErrors;
-        });
+    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: InputField) => {
+        if(field.validationConditions){
+            const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
+            setValidationErrors((prevErrors) => {
+                if (prevErrors[e.target.name] !== error) {
+                    return { ...prevErrors, [e.target.name]: error };
+                }
+                return prevErrors;
+            });
+        }
         setBookDetails((prev: Book) => ({
             ...prev,
             [e.target.name]: e.target.value,
