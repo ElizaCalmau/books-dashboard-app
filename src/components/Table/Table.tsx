@@ -6,6 +6,13 @@ import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
 import { v4 as uuidv4 } from 'uuid';
 import {useBooksContext} from "../../context/BooksContext.tsx";
+import {
+    ShieldCheckIcon,
+    ShieldMinusIcon,
+    SquarePenIcon,
+    Trash2Icon
+} from "lucide-react";
+import classNames from "classnames";
 
 export const Table = ({books} : {books: Book[]}) => {
 
@@ -34,24 +41,15 @@ export const Table = ({books} : {books: Book[]}) => {
                         return <tr key={id} className={styles.tableRow}>
                             {Object.values(rest).map((prop) => {
                                 const itemId = uuidv4()
-                                console.log(prop)
                                     return <td key={itemId} className={styles.tableDataItem}>
                                             {prop}
                                         </td>
 
                             })}
-
-                            <td className={styles.tableDataItem}>
-                                <ButtonLink text='Edit' id={id}/>
-
-
-                                <Button text='Delete' onClick={() => deleteBook(id)}/>
-
-
-                                <Button text={book.active ? 'Deactivate' : 'Activate'} onClick={()=>handleBookStateUpdate({id, book})}/>
-
-
-                                {/*State: {book.active ? 'activated' : 'deactivated'}*/}
+                            <td className={classNames(styles.tableDataItem, styles.buttonWrapper)}>
+                                <ButtonLink icon={<SquarePenIcon />} path={`/${id}`}/>
+                                <Button icon={<Trash2Icon />} onClick={() => deleteBook(id)}/>
+                                <Button icon={book.active ? <ShieldMinusIcon /> : <ShieldCheckIcon />} onClick={()=>handleBookStateUpdate({id, book})}/>
                                 {/*TODO: make a green or red light for book state*/}
                             </td>
                         </tr>
