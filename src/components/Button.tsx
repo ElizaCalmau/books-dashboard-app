@@ -1,13 +1,14 @@
-import React from "react";
+import React, {JSX} from "react";
 interface Prop {
-    text: string,
+    text?: string,
+    icon?: JSX.Element,
     onClick: () => void;
 }
 
-export const Button: React.FC<Prop> = ({text, onClick}) => {
+export const Button: React.FC<Prop> = ({text, onClick, icon}) => {
     return (
         <div onClick={onClick}>
-            {text}
+            {text || icon}
         </div>
     );
 };
