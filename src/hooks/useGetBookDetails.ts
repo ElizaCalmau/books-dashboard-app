@@ -2,6 +2,7 @@ import {useEffect} from "react";
 
 import {getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
+import {initialBook} from "../constants.ts";
 
 export const useGetBookDetails = (id: string) => {
     const {setIsNewBook, setBookDetails, setError} = useBookContext()
@@ -21,10 +22,11 @@ export const useGetBookDetails = (id: string) => {
                         setError(error)
                     };
                     setIsNewBook(true);
-                    setBookDetails((prev) => (
-                        {
-                            ...prev
-                        }));
+                    setBookDetails((prev) => {
+                        return{
+                            ...prev,
+                           ...initialBook
+                        }});
                 }
             };
             fetchData();
