@@ -58,13 +58,14 @@ export const EditPage = () => {
                         ...bookDetails,
                         modifiedAt: formatDate(new Date()),
                     };
-                    await editBook({ id , data: updatedBookDetails });
+                    await editBook({ id , data: updatedBookDetails }).then(() => notify('You have been updated a book successfully.'));
                 } else {
                     const newBookDetails = {
                         ...bookDetails,
                         createdAt: formatDate(new Date()),
                     };
-                    await addBook({data: newBookDetails});
+                    await addBook({data: newBookDetails}).then(() => {notify('You have been added a book successfully.')});
+
                 }
             }
         } catch (error) {
