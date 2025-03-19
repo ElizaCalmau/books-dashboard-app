@@ -21,7 +21,6 @@ export const EditPage = () => {
         toast(message);
     }
     useGetBookDetails(id || '');
-
     const inputFields: InputField[] = [
         { name: "title", label: "Title", type: "text", placeholder: bookDetails.title, required: true, value: bookDetails.title, validationConditions: { min: 4, max: 20, errorMessage: "Title should not" }, },
         { name: "author", label: "Author", type: "text", placeholder: bookDetails.author, required: true, value: bookDetails.author, validationConditions: { min: 4, max: 15, errorMessage: "Author's name should not" }, },
@@ -30,7 +29,6 @@ export const EditPage = () => {
     ];
 
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
-
     const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field) => {
         const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
         setValidationErrors((prevErrors) => {
@@ -59,7 +57,6 @@ export const EditPage = () => {
                     const updatedBookDetails: Book = {
                         ...bookDetails,
                         modifiedAt: formatDate(new Date()),
-
                     };
                     await editBook({ id , data: updatedBookDetails });
                 } else {
@@ -74,13 +71,11 @@ export const EditPage = () => {
             console.error("Error checking if book exists:", error);
         }
     }
-
     return (
         <>
             <form onSubmit={handleSubmit}>
                 {inputFields.map((field: InputField) => {
                     return (
-                        <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
                         <>
                             <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
                             {validationErrors.length > 0 && validationErrors.map((error) => (
@@ -93,6 +88,7 @@ export const EditPage = () => {
                 )}
                 <button type="submit">{submitButton}</button>
             </form>
+            <ToastContainer />
         </>
     );
 };
