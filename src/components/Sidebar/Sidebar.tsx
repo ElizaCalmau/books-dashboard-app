@@ -1,4 +1,4 @@
-import {BookmarkPlus, BookOpenIcon, ShieldCheckIcon} from "lucide-react";
+import {BookmarkPlus, BookOpenIcon} from "lucide-react";
 import {v4 as uuidv4} from "uuid";
 import styles from "./Sidebar.module.scss"
 import {ButtonLink} from "../ButtonLink.tsx";
