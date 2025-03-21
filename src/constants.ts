@@ -44,7 +44,7 @@ export interface Book {
     title: string,
     author: string,
     category: CategoryType,
-    isbn: number,
+    isbn: number | null,
     createdAt: string,
     modifiedAt: string,
     active: boolean,
