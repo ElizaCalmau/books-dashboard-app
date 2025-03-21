@@ -65,7 +65,7 @@ export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
-    setBookDetails: (bookDetails: (prev) => {
+    setBookDetails: (bookDetails: (prev: Book) => {
         id: string;
         title: string;
         author: string;
