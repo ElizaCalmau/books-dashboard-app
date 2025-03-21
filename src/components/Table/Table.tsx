@@ -1,7 +1,7 @@
 import {Book, TABLE_HEADERS} from "../../constants.ts";
-import {Button} from "../Button.tsx";
+import {Button} from "../Button/Button.tsx";
 import {deleteBook, getAllBooks, updateBookState} from "../../utils/bookService.ts";
-import {ButtonLink} from "../ButtonLink.tsx";
+import {ButtonLink} from "../ButtonLink/ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
 import { v4 as uuidv4 } from 'uuid';

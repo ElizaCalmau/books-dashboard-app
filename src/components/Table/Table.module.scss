@@ -25,9 +25,17 @@
       width: 100%;
       background: var(--table-row-color);
       border-radius: 4px;
+      &:hover {
+        background: var(--table-row-hover)
+      }
       .tableDataItem{
         padding: 1em;
         flex: 1;
+        text-align: left;
+      }
+      .buttonWrapper{
+        display: flex;
+        gap: 7px;
       }
     }
 
