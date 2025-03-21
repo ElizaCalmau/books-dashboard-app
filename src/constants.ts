@@ -44,18 +44,18 @@ export interface Book {
     title: string,
     author: string,
     category: CategoryType,
-    isbn: number | null,
+    isbn: string,
     createdAt: string,
     modifiedAt: string,
     active: boolean,
 }
 
-export const initialBook = {
+export const initialBook: Book = {
     id: "",
     title: "",
     author: "",
     category: 'fiction' as CategoryType,
-    isbn: null,
+    isbn: "",
     createdAt: "",
     modifiedAt: "",
     active: true,
@@ -65,12 +65,12 @@ export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
-    setBookDetails: (bookDetails: (prev: Book) => {
+    setBookDetails: (bookDetails: (prev) => {
         id: string;
         title: string;
         author: string;
         category: CategoryType;
-        isbn: number;
+        isbn: string;
         createdAt: string;
         modifiedAt: string;
         active: boolean
