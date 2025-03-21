@@ -10,9 +10,7 @@ interface Prop {
 
 export const ButtonLink: React.FC<Prop> = ({text, icon, path}) => {
     const location = useLocation();
-    console.log('path', path);
     const isActive = location.pathname === path;
-    console.log('loc, pathname',location.pathname);
     return (
             <NavLink to={path} className={isActive ? styles.activeButtonLink: styles.buttonLink}>
                 {icon} {text}
