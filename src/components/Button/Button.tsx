@@ -1,4 +1,5 @@
 import React, {JSX} from "react";
+import styles from "./Button.module.scss";
 interface Prop {
     text?: string,
     icon?: JSX.Element,
@@ -7,7 +8,7 @@ interface Prop {
 
 export const Button: React.FC<Prop> = ({text, onClick, icon}) => {
     return (
-        <div onClick={onClick}>
+        <div onClick={onClick} className={styles.button}>
             {text || icon}
         </div>
     );

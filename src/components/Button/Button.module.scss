@@ -1,0 +1,7 @@
+.button {
+  color: var(--button-color);
+   &:hover {
+     color: var(--button-hover-color);
+     cursor: pointer;
+   }
+}
