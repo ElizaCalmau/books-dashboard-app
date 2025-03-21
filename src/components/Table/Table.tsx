@@ -13,6 +13,7 @@ import {
     Trash2Icon
 } from "lucide-react";
 import classNames from "classnames";
+import {useNavigate} from "react-router-dom";
 
 export const Table = ({books} : {books: Book[]}) => {
 
@@ -22,7 +23,8 @@ export const Table = ({books} : {books: Book[]}) => {
         const freshBooks = await getAllBooks();
         setBooksList(freshBooks);
      }
-     
+     const navigate = useNavigate();
+     const handleNavigation = ( path : string) => navigate(path);
     if(books.length > 0){
         return (
             <>
@@ -38,7 +40,7 @@ export const Table = ({books} : {books: Book[]}) => {
                     <tbody>
                     {books.length > 0 && books.map((book: Book) => {
                         const {id, active, ...rest} = book;
-                        return <tr key={id} className={styles.tableRow}>
+                        return <tr key={id} className={styles.tableRow} onClick={() => handleNavigation(`/update-book/${id}`)}>
                             {Object.values(rest).map((prop) => {
                                 const itemId = uuidv4()
                                     return <td key={itemId} className={styles.tableDataItem}>
