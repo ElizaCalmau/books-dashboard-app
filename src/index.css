@@ -13,10 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 
   --primary-font: #f9f9f9;
-  --bg-color: #231c33;
-  --table-row-color: linear-gradient(to right, #434252, #3d3b5d);
-  --table-header-color: #434252;
-  --button-color: #646cff;
+  --bg-color: #1c1b1e;
+  --table-row-color: linear-gradient(to right, #514f7d, #2a1a4d);
+  --table-row-hover: #807acc;
+  --table-header-color: #85839d;
+  --button-color: #FFF;
+  --button-active-color: #b493fb;
+  --button-hover-color: #8f8f8f;
   --sidebar-bg: linear-gradient(to bottom, #434452, #3d3b5d);
   --button-icon-color: #c0ddff;
 }
