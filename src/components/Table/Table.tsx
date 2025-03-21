@@ -14,16 +14,17 @@ import {
 } from "lucide-react";
 import classNames from "classnames";
 import {useNavigate} from "react-router-dom";
+import React from "react";
 
 export const Table = ({books} : {books: Book[]}) => {
 
      const {setBooksList} = useBooksContext();
      const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
-         const {setBooksList} = useBooksContext();
          await updateBookState({id, isActivated: !book.active});
         const freshBooks = await getAllBooks();
         setBooksList(freshBooks);
      }
+
      const navigate = useNavigate();
      const handleNavigation = ( path : string) => navigate(path);
     if(books.length > 0){
@@ -51,8 +52,16 @@ export const Table = ({books} : {books: Book[]}) => {
                             })}
                             <td className={classNames(styles.tableDataItem, styles.buttonWrapper)}>
                                 <ButtonLink icon={<SquarePenIcon />} path={`/update-book/${id}`}/>
-                                <Button icon={<Trash2Icon />} onClick={() => deleteBook(id)}/>
-                                <Button icon={book.active ? <ShieldMinusIcon /> : <ShieldCheckIcon />} onClick={()=>handleBookStateUpdate({id, book})}/>
+                                <Button icon={<Trash2Icon />} onClick={(event: React.MouseEvent) => {
+                                    event.stopPropagation();
+                                    void deleteBook(id)}
+                                }
+                                    />
+                                <Button icon={book.active ? <ShieldMinusIcon /> : <ShieldCheckIcon />}
+                                        onClick={(event: React.MouseEvent) => {
+                                            event.stopPropagation();
+                                            void handleBookStateUpdate({ id, book });
+                                        }}/>
                                 {/*TODO: make a green or red light for book state*/}
                             </td>
                         </tr>
