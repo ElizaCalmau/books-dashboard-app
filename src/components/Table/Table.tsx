@@ -17,6 +17,7 @@ import {useNavigate} from "react-router-dom";
 
 export const Table = ({books} : {books: Book[]}) => {
 
+     const {setBooksList} = useBooksContext();
      const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
          const {setBooksList} = useBooksContext();
          await updateBookState({id, isActivated: !book.active});
