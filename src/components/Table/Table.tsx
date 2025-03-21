@@ -47,7 +47,7 @@ export const Table = ({books} : {books: Book[]}) => {
 
                             })}
                             <td className={classNames(styles.tableDataItem, styles.buttonWrapper)}>
-                                <ButtonLink icon={<SquarePenIcon />} path={`/${id}`}/>
+                                <ButtonLink icon={<SquarePenIcon />} path={`/update-book/${id}`}/>
                                 <Button icon={<Trash2Icon />} onClick={() => deleteBook(id)}/>
                                 <Button icon={book.active ? <ShieldMinusIcon /> : <ShieldCheckIcon />} onClick={()=>handleBookStateUpdate({id, book})}/>
                                 {/*TODO: make a green or red light for book state*/}
