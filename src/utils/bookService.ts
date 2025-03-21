@@ -52,7 +52,6 @@ export const editBook = async ({id, data}:{id: string, data: Book}) => {
 }
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
-    console.log(id, isActivated);
     await fetch(`${BASE_URL}${id}`, {
         method: "PATCH",
         headers: {
