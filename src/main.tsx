@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
                     <BooksProvider>
                             <Sidebar />
                             <Routes>
-                                <Route path='/books-dashboard' element={<App />}/>
+                                <Route path='/' element={<App />}/>
                                 <Route path='/update-book/:id' element={<EditPage />} />
                                 <Route path="*" element={<h1> Sorry, page Not found</h1>}/>
                             </Routes>

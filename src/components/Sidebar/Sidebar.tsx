@@ -6,7 +6,7 @@ export const Sidebar = () => {
     const id = uuidv4()
     return (
         <div className={styles.sidebarWrapper}>
-            <ButtonLink path='/books-dashboard' icon={<BookOpenIcon size={50}/>} text="Home"/>
+            <ButtonLink path='/' icon={<BookOpenIcon size={50}/>} text="Home"/>
             <ButtonLink path={`/update-book/${id}`} icon={<BookmarkPlus size={50}/>} text="Add Book"/>
         </div>
     );
