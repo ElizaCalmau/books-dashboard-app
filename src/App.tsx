@@ -1,7 +1,7 @@
 import './App.css';
 import {Table} from "./components/Table/Table.tsx";
 import {Book, FilterOption, filterOptions} from "./constants.ts";
-import {Select} from "./components/Select.tsx";
+import {Select} from "./components/Select/Select.tsx";
 import {handleFilterChange} from "./utils/handleFilterChange.ts";
 import {useFilterBooks} from "./hooks/useFilterBooks.ts";
 import {useState} from "react";
