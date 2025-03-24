@@ -12,7 +12,7 @@ import {Sidebar} from "./components/Sidebar/Sidebar.tsx";
 
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter basename="/books-dashboard">
+    <BrowserRouter>
         <StrictMode>
                 <BookProvider>
                     <BooksProvider>
