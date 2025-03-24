@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/books-dashboard(/.*)?", "destination": "/index.html" }
+  ]
+}
