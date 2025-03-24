@@ -20,8 +20,8 @@
   --select-bg-color: linear-gradient(to bottom, #98D2C0, #75c2cb);
   --select-option-hover-color: #ffffff40;
   --button-color: #FFF;
-  --button-active-color: #b493fb;
-  --button-hover-color: #8f8f8f;
+  --button-active-color: #98d2c0;
+  --button-hover-color: #F6F8D5;
   --sidebar-bg: linear-gradient(to bottom, #434452, #3d3b5d);
   --button-icon-color: #c0ddff;
 }
