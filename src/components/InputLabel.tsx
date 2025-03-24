@@ -1,6 +1,6 @@
 import {InputField} from "../constants.ts";
 import React from "react";
-import {Select} from "./Select.tsx";
+import {Select} from "./Select/Select.tsx";
 
 interface Prop {
     field: InputField,
