@@ -3,9 +3,9 @@
   flex: 1;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   height: inherit;
-  padding-left: 2em;
+  padding: 8em 0 0 2em;
   .navItem{
     color: var(--button-icon-color);
     :hover{
