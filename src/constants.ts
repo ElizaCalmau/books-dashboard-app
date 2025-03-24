@@ -108,8 +108,8 @@ export interface InputField {
     options?: CategoryOption[] | FilterOption[];
 }
 
-export interface SelectProps extends Omit<InputField, "label" | "placeholder" | "validationConditions" > {
-    onChange?: (value: React.ChangeEvent<HTMLSelectElement>) => void,
+export interface SelectProps extends Pick<InputField, "value"> {
+    onChange: (value: FilterOption | CategoryOption) => void,
     options: CategoryOption[] | FilterOption[];
 }
 

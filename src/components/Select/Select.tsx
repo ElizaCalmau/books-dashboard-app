@@ -1,18 +1,25 @@
-import {CategoryOption, FilterOption, SelectProps} from "../../constants.ts";
-import React from "react";
+import {SelectProps} from "../../constants.ts";
+import React, {useState} from "react";
 import styles from "./Select.module.scss";
+import classNames from "classnames";
+import {ChevronDown} from "lucide-react";
 
-export const Select: React.FC<SelectProps> = ({options, name, value, onChange, required}) => {
+export const Select: React.FC<SelectProps> = ({options, value, onChange}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownClassNames = classNames(styles.dropdown, {[styles.open]: isOpen});
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+    }
     return (
-        <div className={styles.selectWrapper}>
-        <select id={name} name={name} value={value} onChange={onChange} required={required}>
-            {options?.map((option: CategoryOption | FilterOption) => (
-                <option key={option.value} value={option.value}>
-                    {option.label}
-                </option>
-            ))}
-        </select>
-
+        <div className={styles.selectWrapper} onClick={toggleOpen}>
+            <div className={styles.selectedOption}>
+                {value} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
+            </div>
+            <ul className={dropdownClassNames}>
+                {options.map((option) => (
+                    <li className={styles.option} onClick={() => onChange(option)}>{option.label}</li>
+                ))}
+            </ul>
         </div>
     );
 };

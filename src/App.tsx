@@ -13,7 +13,7 @@ function App() {
     const filteredBooks = useFilterBooks({filter, booksList}) || [];
     return (
         <div className="mainWrapper">
-            <Select options={filterOptions} name='filter' value={filter.value} onChange={(e) => handleFilterChange(e, setFilter)} type='select' required={true} />
+            <Select options={filterOptions} value={filter.label} onChange={(option) => handleFilterChange(option, setFilter)}/>
             <Table books={filteredBooks}/>
         </div>
   )
