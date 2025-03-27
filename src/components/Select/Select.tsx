@@ -15,11 +15,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onChange}) => {
             <div className={styles.selectedOption}>
                 {value} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
             </div>
-            <ul className={dropdownClassNames}>
-                {options.map((option) => (
-                    <li className={styles.option} onClick={() => onChange(option)}>{option.label}</li>
-                ))}
-            </ul>
+            <Dropdown onClick={onClick} isOpen={isOpen} options={options}/>
         </div>
     );
 };
