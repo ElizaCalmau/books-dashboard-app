@@ -42,7 +42,7 @@ export const Table = ({books} : {books: Book[]}) => {
                     <tbody>
                     {books.length > 0 && books.map((book: Book) => {
                         const {id, active, ...rest} = book;
-                        return <tr key={id} className={styles.tableRow} onClick={() => handleNavigation(`/update-book/${id}`)}>
+                        return <tr key={id} className={styles.tableBodyRow} onClick={() => handleNavigation(`/update-book/${id}`)}>
                             {Object.values(rest).map((prop) => {
                                 const itemId = uuidv4()
                                     return <td key={itemId} className={styles.tableDataItem}>
