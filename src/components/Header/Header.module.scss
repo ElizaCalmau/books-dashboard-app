@@ -1,0 +1,21 @@
+.headerWrapper{
+  display: flex;
+  flex-direction: column;
+  align-self: self-start;
+  width: 80%;
+  margin-bottom: 4em;
+  text-align: left;
+    h1{
+      margin: 0;
+    }
+    @media (min-width: 1024px) {
+      width: 65%;
+      h1{
+        font-size: 36px;
+      }
+      h3{
+        font-size: 24px;
+      }
+
+    }
+}
