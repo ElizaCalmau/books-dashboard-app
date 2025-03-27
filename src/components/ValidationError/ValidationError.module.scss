@@ -1,0 +1,7 @@
+.validationError{
+  color: #fff;
+  font-size: small;
+   &::before{
+     content: '*';
+   }
+}
