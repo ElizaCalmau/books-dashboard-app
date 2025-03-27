@@ -3,15 +3,20 @@ import React, {useState} from "react";
 import styles from "./Select.module.scss";
 import classNames from "classnames";
 import {ChevronDown} from "lucide-react";
+import {useLocation} from "react-router";
+import {Dropdown} from "../Dropdown/Dropdown.tsx";
 
-export const Select: React.FC<SelectProps> = ({options, value, onChange}) => {
+export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const dropdownClassNames = classNames(styles.dropdown, {[styles.open]: isOpen});
+    const location = useLocation();
+    const editPage = location.pathname.split("/").some((el) => el == 'update-book');
+    const selectClassName = classNames(styles.selectWrapper, {[styles.editPageSelect]: editPage});
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }
+
     return (
-        <div className={styles.selectWrapper} onClick={toggleOpen}>
+        <div className={selectClassName} onClick={toggleOpen}>
             <div className={styles.selectedOption}>
                 {value} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
             </div>
