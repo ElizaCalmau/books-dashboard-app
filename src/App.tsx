@@ -6,6 +6,7 @@ import {handleFilterChange} from "./utils/handleFilterChange.ts";
 import {useFilterBooks} from "./hooks/useFilterBooks.ts";
 import {useState} from "react";
 import {useGetBooks} from "./hooks/useGetBooks.ts";
+import {Header} from "./components/Header/Header.tsx";
 
 function App() {
     const booksList: Book[] = useGetBooks();
@@ -13,8 +14,12 @@ function App() {
     const filteredBooks = useFilterBooks({filter, booksList}) || [];
     return (
         <div className="mainWrapper">
-            <Select options={filterOptions} value={filter.label} onChange={(option) => handleFilterChange(option, setFilter)}/>
-            <Table books={filteredBooks}/>
+                <Header />
+                <div className="tableWrapper">
+                    <Select options={filterOptions} value={filter.label} onClick={(option) => handleFilterChange(option, setFilter)}/>
+                    <Table books={filteredBooks}/>
+                </div>
+
         </div>
   )
 }
