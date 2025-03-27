@@ -1,16 +1,29 @@
 .selectWrapper{
   position: absolute;
-  left: 0;
-  margin: 2em;
+  right: 0;
+  transform: translateY(-5em);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 195px;
-  background: var(--select-bg-color);
-  color: #fff;
+  width: 209px;
+  height: fit-content;
+  background: #fff;
+  opacity: 90%;
+  color: var(--secondary-color);
   padding: 1em;
   border-radius: 10px;
+  @media (max-width: 1024px) {
+    width: 165px;
+  }
+}
+
+.editPageSelect{
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 
@@ -18,10 +31,17 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  padding: 0 0.5em;
   align-items: center;
   width: 100%;
   font-weight: bold;
-  font-size: large;
+  font-size: 20px;
+  &::before{
+    content: 'Show';
+  }
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
 }
 
 .arrowUp{
