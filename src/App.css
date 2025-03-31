@@ -1,12 +1,11 @@
 #root {
   display: flex;
   flex-direction: row;
-  max-width: 100%;
-  min-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   min-height: 100vh;
+  background: var(--root-color);
 }
 
 body {
@@ -17,6 +16,16 @@ body {
 .mainWrapper {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  flex: 4;
+  align-items: center;
+  flex: 3;
+  margin: 2em;
+  @media (min-width: 1440px) {
+    flex: 4;
+  }
+}
+
+.tableWrapper{
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
