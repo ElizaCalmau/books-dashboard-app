@@ -1,7 +1,9 @@
 .button {
   color: var(--button-color);
+  height: 26px;;
    &:hover {
      color: var(--button-hover-color);
      cursor: pointer;
+     transition: all 0.3s ease-in-out;
    }
 }
