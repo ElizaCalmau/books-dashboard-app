@@ -1,11 +1,11 @@
-import {InputField} from "../../constants.ts";
+import {CategoryOption, FilterOption, InputField} from "../../constants.ts";
 import React from "react";
 import {Select} from "../Select/Select.tsx";
 import styles from './InputLabel.module.scss'
 
 interface Prop {
     field: InputField,
-    onChange?: (value: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void,
+    onChange: (value: React.ChangeEvent<HTMLInputElement> | CategoryOption | FilterOption) => void,
 }
 
 export const InputLabel: React.FC<Prop> = ({field, onChange}) => {
