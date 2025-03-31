@@ -13,17 +13,23 @@
   -moz-osx-font-smoothing: grayscale;
 
   --primary-font: #f9f9f9;
-  --bg-color: linear-gradient(90deg, #2e638d, #1d5b78);;
+  --root-color: linear-gradient(90deg, #2e638d, #1d5b78);
+  --secondary-color: #242424;
   --table-row-color: #4F959D;
   --table-row-hover: #41caa0ab;
   --table-header-color: #98D2C0;
   --select-bg-color: linear-gradient(to bottom, #98D2C0, #75c2cb);
-  --select-option-hover-color: #ffffff40;
+  --select-option-hover-color: #D9D9D9;
   --button-color: #FFF;
-  --button-active-color: #98d2c0;
-  --button-hover-color: #F6F8D5;
-  --sidebar-bg: linear-gradient(to bottom, #434452, #3d3b5d);
+  --button-active-color: #242424;
+  --button-hover-color: #3a3a3a;
+  --sidebar-bg: #4496b1;
+  --light-bg: #59a1b9;
   --button-icon-color: #c0ddff;
+  --bp-small: 640px;
+  --bp-medium: 768px;
+  --bp-large: 1024px;
+  --bp-xlarge: 1440px;
 }
 
 a {
@@ -42,7 +48,7 @@ a:hover {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  background: var(--bg-color);
+  background: var(--secondary-color);
   color: var(--primary-font);
   margin: 0
 }
