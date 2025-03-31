@@ -2,7 +2,15 @@ import {useParams} from "react-router";
 import {InputLabel} from "../InputLabel/InputLabel.tsx";
 import {useGetBookDetails} from "../../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
-import {Book, InputField, SUBMIT_BUTTON, categoryOptions, ValidationErrors} from "../../constants.ts";
+import {
+    Book,
+    InputField,
+    SUBMIT_BUTTON,
+    categoryOptions,
+    ValidationErrors,
+    CategoryOption,
+    FilterOption
+} from "../../constants.ts";
 import {formatDate} from "../../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../../utils/bookService.ts";
 import {useBookContext} from "../../context/BookContext.tsx";
@@ -27,7 +35,7 @@ export const EditPage = () => {
     ];
 
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: InputField) => {
+    const handleInputChange =(e: React.ChangeEvent<HTMLInputElement> , field: InputField) => {
         if(field.validationConditions){
             const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
             setValidationErrors((prevErrors) => {
@@ -43,6 +51,29 @@ export const EditPage = () => {
             id: id || prev.id,
         }));
     }
+
+    const handleSelectChange = (option: CategoryOption | FilterOption, field: InputField) => {
+        console.log('Select Option:', option.value);
+        setBookDetails((prev: Book) => ({
+            ...prev,
+            [field.name]: option.value,
+            id: id || prev.id,
+        }));
+    };
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement> | CategoryOption | FilterOption,
+        field: InputField
+    ) => {
+        if ('label' in e) {
+            console.log('1 if')
+            handleSelectChange(e as CategoryOption, field);
+        } else {
+            handleInputChange(e as React.ChangeEvent<HTMLInputElement>, field);
+
+        }
+    };
+
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         const hasErrors = Object.values(validationErrors).some(error => error !== null);
@@ -80,7 +111,7 @@ export const EditPage = () => {
                     {bookDetails && inputFields.map((field: InputField) => {
                         return (
                                 <div className={styles.inputWrapper} key={field.name}>
-                                    <InputLabel field={field} onChange={(e) => handleChange(e, field)}/>
+                                    <InputLabel field={field} onChange={(e:  React.ChangeEvent<HTMLInputElement> | CategoryOption | FilterOption) => handleChange(e, field)}/>
                                     <div className={styles.validationError}>
                                         <ValidationError key={field.value} error={validationErrors[field.name]} />
                                     </div>
