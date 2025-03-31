@@ -1,0 +1,21 @@
+.formWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 4;
+  margin: 2em;
+}
+.form{
+  width: 50%;
+  background: var(--light-bg);
+  padding: 2em;
+  border-radius: 10px;
+}
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.validationError{
+  min-height: 25px;
+}
