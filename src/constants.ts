@@ -4,13 +4,14 @@ export const BASE_URL = 'http://localhost:3000/books/'
 
 export enum TABLE_HEADERS {
     TITLE = "Title",
-    AUTHOR="Author",
-    CATEGORY="Category",
-    ISBN="ISBN",
-    CREATED_AT="Created At",
-    MODIFIED_AT="Modified At",
-    ACTIVE="Active",
+    AUTHOR = "Author",
+    CATEGORY = "Category",
+    ISBN = "ISBN",
+    CREATED_AT = "Created",
+    MODIFIED_AT = "Modified",
+    ACTIVE = "Active",
 }
+
 export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller';
 
 export interface CategoryOption {
@@ -19,10 +20,10 @@ export interface CategoryOption {
 }
 
 export const categoryOptions: CategoryOption[] = [
-    { label: 'Fiction', value: 'fiction' },
-    { label: 'Finance', value: 'finance' },
-    { label: 'Science', value: 'science' },
-    { label: 'Thriller', value: 'thriller' },
+    {label: 'Fiction', value: 'fiction'},
+    {label: 'Finance', value: 'finance'},
+    {label: 'Science', value: 'science'},
+    {label: 'Thriller', value: 'thriller'},
 ];
 
 export interface FilterOption {
@@ -31,9 +32,9 @@ export interface FilterOption {
 }
 
 export const filterOptions: FilterOption[] = [
-    { label: 'Show All', value: 'all' },
-    { label: 'Show Active', value: 'active' },
-    { label: 'Show Deactivated', value: 'deactivated' },
+    {label: 'All', value: 'all'},
+    {label: 'Active', value: 'active'},
+    {label: 'Deactivated', value: 'deactivated'},
 ]
 
 
@@ -109,8 +110,8 @@ export interface InputField {
 }
 
 export interface SelectProps extends Pick<InputField, "value"> {
-    onChange: (value: FilterOption | CategoryOption) => void,
-    options: CategoryOption[] | FilterOption[];
+    onClick: (value: CategoryOption | FilterOption) => void,
+    options: CategoryOption[] | FilterOption[],
 }
 
 export interface ValidationErrors {
