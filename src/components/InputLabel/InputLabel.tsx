@@ -14,7 +14,7 @@ export const InputLabel: React.FC<Prop> = ({field, onChange}) => {
         <>
             <label className={styles.label} htmlFor={name}> {label}</label>
             {options ?
-                <Select value={value} type={type} required={required} options={options} onClick={onChange}/>
+                <Select value={value} options={options} onClick={onChange}/>
                 :
                 <input className={styles.customInput} required={required} type={type} name={name} id={name} placeholder={placeholder} value={value} onChange={onChange} />
             }
