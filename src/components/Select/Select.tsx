@@ -14,11 +14,12 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }
+    const option = options?.find(option => option.value === value);
 
     return (
         <div className={selectClassName} onClick={toggleOpen}>
             <div className={styles.selectedOption}>
-                {value} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
+                {option?.label} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
             </div>
             <Dropdown onClick={onClick} isOpen={isOpen} options={options}/>
         </div>
