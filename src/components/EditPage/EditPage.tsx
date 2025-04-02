@@ -107,7 +107,7 @@ export const EditPage = () => {
         <>
             <form onSubmit={handleSubmit} className={styles.formWrapper}>
                 <div className={styles.form}>
-                    <h2>Please add a book</h2>
+                    <h2>Please {isNewBook? 'add' : 'update'} a book </h2>
                     {bookDetails && inputFields.map((field: InputField) => {
                         return (
                                 <div className={styles.inputWrapper} key={field.name}>
