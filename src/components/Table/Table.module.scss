@@ -4,10 +4,10 @@
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
-    th, td{
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: wrap;
+  white-space: normal;
+    }
+    tr:nth-child(even) {
+      background-color: var(--table-row-color);
     }
     .tableHeadRow, .tableBodyRow{
       display: flex;
@@ -27,11 +27,16 @@
         @media (min-width: 1024px) {
           font-size: 18px;
         }
+      @media (max-width: 992px) {
+        &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+          display: none;
+        }
+      }
     }
     .tableBodyRow{
       margin: 10px 0;
       width: 100%;
-      background: var(--table-row-color);
+      background: var(--secondary-row-color);
       transition: all 0.4s ease-in-out;
       &:hover {
         background: var(--table-row-hover);
@@ -47,4 +52,4 @@
       }
     }
 
-}
+
