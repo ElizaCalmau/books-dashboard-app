@@ -60,7 +60,7 @@ export const EditPage = () => {
         console.log('Select Option:', option.value);
         setBookDetails((prev: Book) => ({
             ...prev,
-            [field.name]: option.value,
+            [field.name]: option.label,
             id: id || prev.id,
         }));
     };
