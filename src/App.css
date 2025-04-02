@@ -5,6 +5,7 @@
   margin: 0 auto;
   text-align: center;
   min-height: 100vh;
+  min-width: 375px;
   background: var(--root-color);
 }
 
