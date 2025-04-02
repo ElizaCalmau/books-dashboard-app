@@ -1,0 +1,31 @@
+
+.bookActive {
+  width: 10px;
+  height: 10px;
+  background-color: var(--lime-green);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 5px var(--lime-green);
+  animation: sparkleGreen 1.5s infinite ease-in-out;
+}
+
+@keyframes sparkleGreen {
+  0% { box-shadow: 0 0 5px var(--lime-green); }
+  50% { box-shadow: 0 0 12px var(--lime-green), 0 0 20px var(--lime-green-light); }
+  100% { box-shadow: 0 0 5px var(--lime-green); }
+}
+.bookInactive {
+  width: 10px;
+  height: 10px;
+  background-color: var(--red);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 5px var(--red);
+  animation: sparkleRed 1.5s infinite ease-in-out;
+}
+
+@keyframes sparkleRed {
+  0% { box-shadow: 0 0 5px var(--red); }
+  50% { box-shadow: 0 0 12px var(--red), 0 0 20px var(--red-light); }
+  100% { box-shadow: 0 0 5px var(--red)}
+}
