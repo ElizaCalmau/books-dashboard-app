@@ -77,7 +77,8 @@ export const EditPage = () => {
         }
     };
 
-    const handleBookState = () => {
+    const handleBookState = (e: React.MouseEvent) => {
+        e.preventDefault();
         setBookDetails((prev) => ({
             ...prev,
             active: !bookDetails.active,

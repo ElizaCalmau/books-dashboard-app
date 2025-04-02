@@ -4,7 +4,7 @@ import React from "react";
 
 interface BookStateProps {
     isActive: boolean;
-    handleChange: () => void;
+    handleChange: (e: React.MouseEvent) => void;
 }
 
 export const  BookState: React.FC<BookStateProps>= ({isActive, handleChange}) => {
