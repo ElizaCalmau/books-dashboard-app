@@ -57,7 +57,6 @@ export const EditPage = () => {
     }
 
     const handleSelectChange = (option: CategoryOption | FilterOption, field: InputField) => {
-        console.log('Select Option:', option.value);
         setBookDetails((prev: Book) => ({
             ...prev,
             [field.name]: option.label,
@@ -70,7 +69,6 @@ export const EditPage = () => {
         field: InputField
     ) => {
         if ('label' in e) {
-            console.log('1 if')
             handleSelectChange(e as CategoryOption, field);
         } else {
             handleInputChange(e as React.ChangeEvent<HTMLInputElement>, field);
