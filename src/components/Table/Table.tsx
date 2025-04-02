@@ -57,7 +57,7 @@ export const Table = ({books} : {books: Book[]}) => {
                                     void deleteBook(id)}
                                 }
                                     />
-                                <Button icon={book.active ? <ShieldMinusIcon /> : <ShieldCheckIcon />}
+                                <Button icon={book.active ? <ShieldCheckIcon /> : <ShieldMinusIcon />}
                                         onClick={(event: React.MouseEvent) => {
                                             event.stopPropagation();
                                             void handleBookStateUpdate({ id, book });
