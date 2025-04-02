@@ -19,6 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import ValidationError from "../ValidationError/ValidationError.tsx";
 import styles from "./EditPage.module.scss";
 import {Indicator} from "../Indicator/Indicator.tsx";
+import {StepBackIcon} from "lucide-react";
 
 
 export const EditPage = () => {
@@ -37,6 +38,7 @@ export const EditPage = () => {
     ];
 
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
+
     const handleInputChange =(e: React.ChangeEvent<HTMLInputElement> , field: InputField) => {
         if(field.validationConditions){
             const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
@@ -75,6 +77,13 @@ export const EditPage = () => {
 
         }
     };
+
+    const handleBookState = () => {
+        setBookDetails((prev) => ({
+            ...prev,
+            active: !bookDetails.active,
+        }))
+    }
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -127,7 +136,7 @@ export const EditPage = () => {
                             <p>The book is {bookDetails.active ? 'active' : 'deactivated'}</p>
                             <Indicator isActive={bookDetails.active} />
                         </div>
-                        <button>{bookDetails.active ? 'Deactivate' : 'Activate'}</button>
+                        <button onClick={handleBookState}>{bookDetails.active ? 'Deactivate' : 'Activate'}</button>
                     </div>
 
                     <button type="submit">{submitButton}</button>
