@@ -32,6 +32,11 @@
           display: none;
         }
       }
+      @media (max-width: 420px) {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
     }
     .tableBodyRow{
       margin: 10px 0;
