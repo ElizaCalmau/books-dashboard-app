@@ -36,27 +36,3 @@
 .validationError{
   min-height: 25px;
 }
-
-
-.bookStateWrapper{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  background: #fff;
-  padding: 10px;
-  margin-bottom: 25px;
-    button{
-      font-size: 13px;
-      background: var(--button-icon-color)
-    }
-}
-
-.indicatorWrapper{
-  display: flex;
-    p{
-      font-size: larger;
-      margin: 0 5px;
-      color: var(--secondary-color);
-    }
-}

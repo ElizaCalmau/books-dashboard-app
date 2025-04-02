@@ -18,8 +18,8 @@ import {validator} from "../../utils/validator.ts";
 import { ToastContainer, toast } from 'react-toastify';
 import ValidationError from "../ValidationError/ValidationError.tsx";
 import styles from "./EditPage.module.scss";
-import {Indicator} from "../Indicator/Indicator.tsx";
 import {StepBackIcon} from "lucide-react";
+import {BookState} from "../BookState/BookState.tsx";
 
 
 export const EditPage = () => {
@@ -126,19 +126,11 @@ export const EditPage = () => {
                                     <div className={styles.validationError}>
                                         <ValidationError key={field.value} error={validationErrors[field.name]} />
                                     </div>
-
                                 </div>
                         )
                     }
                     )}
-                    <div className={styles.bookStateWrapper}>
-                        <div className={styles.indicatorWrapper}>
-                            <p>The book is {bookDetails.active ? 'active' : 'deactivated'}</p>
-                            <Indicator isActive={bookDetails.active} />
-                        </div>
-                        <button onClick={handleBookState}>{bookDetails.active ? 'Deactivate' : 'Activate'}</button>
-                    </div>
-
+                    <BookState isActive={bookDetails.active} handleChange={handleBookState} />
                     <button type="submit">{submitButton}</button>
                 </div>
             <button onClick={() => window.history.back()}><StepBackIcon /></button>
