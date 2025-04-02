@@ -20,6 +20,7 @@ import ValidationError from "../ValidationError/ValidationError.tsx";
 import styles from "./EditPage.module.scss";
 import {StepBackIcon} from "lucide-react";
 import {BookState} from "../BookState/BookState.tsx";
+import {goBack} from "../../utils/utils.ts";
 
 
 export const EditPage = () => {
@@ -131,7 +132,8 @@ export const EditPage = () => {
                     <BookState isActive={bookDetails.active} handleChange={handleBookState} />
                     <button type="submit">{submitButton}</button>
                 </div>
-            <button onClick={() => window.history.back()}><StepBackIcon /></button>
+            <button onClick={goBack}
+            ><StepBackIcon /></button>
             </form>
             <ToastContainer />
         </>
