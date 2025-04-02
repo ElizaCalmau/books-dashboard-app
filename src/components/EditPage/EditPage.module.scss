@@ -2,14 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 4;
+  flex: 3;
   margin: 2em;
+  @media (min-width: 1440px) {
+    flex: 4;
+  }
+  @media (max-width: 420px) {
+    margin: 0;
+  }
 }
 .form{
   width: 50%;
+  max-width: 450px;
   background: var(--light-bg);
   padding: 2em;
   border-radius: 10px;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+  @media (max-width: 420px) {
+    width: 100%;
+    border-radius: 0;
+    background-color: var(--ligh-bg-mobile);
+  }
 }
 .inputWrapper{
   display: flex;
