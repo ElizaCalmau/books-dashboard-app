@@ -14,8 +14,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }
-    const option = options?.find(option => option.value === value);
-
+    const option = options?.find(option => option.label == value);
     return (
         <div className={selectClassName} onClick={toggleOpen}>
             <div className={styles.selectedOption}>
