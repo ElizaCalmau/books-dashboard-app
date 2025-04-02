@@ -18,6 +18,8 @@ import {validator} from "../../utils/validator.ts";
 import { ToastContainer, toast } from 'react-toastify';
 import ValidationError from "../ValidationError/ValidationError.tsx";
 import styles from "./EditPage.module.scss";
+import {Indicator} from "../Indicator/Indicator.tsx";
+
 
 export const EditPage = () => {
     const {id} = useParams();
@@ -120,6 +122,14 @@ export const EditPage = () => {
                         )
                     }
                     )}
+                    <div className={styles.bookStateWrapper}>
+                        <div className={styles.indicatorWrapper}>
+                            <p>The book is {bookDetails.active ? 'active' : 'deactivated'}</p>
+                            <Indicator isActive={bookDetails.active} />
+                        </div>
+                        <button>{bookDetails.active ? 'Deactivate' : 'Activate'}</button>
+                    </div>
+
                     <button type="submit">{submitButton}</button>
                 </div>
             </form>
