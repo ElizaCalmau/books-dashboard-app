@@ -11,17 +11,17 @@
 
 .bar {
   width: 30px;
-  height: 2px;
+  height: 3px;
   background-color: #fff;
   margin: 6px 0;
   transition: 0.2s;
   &.cross:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
   }
   &.cross:nth-child(2) {
     opacity: 0;
   }
   &.cross:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
   }
 }
