@@ -132,6 +132,7 @@ export const EditPage = () => {
 
                     <button type="submit">{submitButton}</button>
                 </div>
+            <button onClick={() => window.history.back()}><StepBackIcon /></button>
             </form>
             <ToastContainer />
         </>
