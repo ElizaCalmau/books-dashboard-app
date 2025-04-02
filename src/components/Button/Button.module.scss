@@ -1,9 +1,18 @@
 .button {
   color: var(--button-color);
-  height: 26px;;
+  height: 26px;
    &:hover {
      color: var(--button-hover-color);
      cursor: pointer;
      transition: all 0.3s ease-in-out;
    }
+  @media (max-width: 420px) {
+    &:nth-child(3){
+      display: none;
+    }
+    svg{
+      transform: scale(1.2);
+      stroke-width: 1.5;
+    }
+  }
 }
