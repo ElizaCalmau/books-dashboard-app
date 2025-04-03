@@ -1,18 +1,27 @@
-import {CategoryOption, FilterOption, SelectProps} from "../../constants.ts";
-import React from "react";
+import {SelectProps} from "../../constants.ts";
+import React, {useState} from "react";
 import styles from "./Select.module.scss";
+import classNames from "classnames";
+import {ChevronDown} from "lucide-react";
+import {useLocation} from "react-router";
+import {Dropdown} from "../Dropdown/Dropdown.tsx";
 
-export const Select: React.FC<SelectProps> = ({options, name, value, onChange, required}) => {
+export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+    const editPage = location.pathname.split("/").some((el) => el == 'update-book');
+    const selectClassName = classNames(styles.selectWrapper, {[styles.editPageSelect]: editPage});
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+    }
+
+    const option = options?.find(option => option.label.toLowerCase() == value.toLowerCase());
     return (
-        <div className={styles.selectWrapper}>
-        <select id={name} name={name} value={value} onChange={onChange} required={required}>
-            {options?.map((option: CategoryOption | FilterOption) => (
-                <option key={option.value} value={option.value}>
-                    {option.label}
-                </option>
-            ))}
-        </select>
-
+        <div className={selectClassName} onClick={toggleOpen}>
+            <div className={styles.selectedOption}>
+                {option?.label} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
+            </div>
+            <Dropdown onClick={onClick} isOpen={isOpen} options={options}/>
         </div>
     );
 };

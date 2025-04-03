@@ -1,42 +1,67 @@
 @import "../../index.css";
 .table {
-  margin: 2em;
-  min-width: 70%;
-  display: flex;
   flex-direction: column;
-    .tableHeadRow{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  white-space: normal;
+    }
+    tr:nth-child(even) {
+      background-color: var(--table-row-color);
+    }
+    .tableHeadRow, .tableBodyRow{
       display: flex;
       align-items: center;
+      justify-content: start;
       width: 100%;
       background-color: var(--table-header-color);
-      border-radius: 4px;
-      .tableHeadItem {
-        padding: 1em;
-        flex: 1;
-        text-align: left;
+      border-radius: 10px;
+      padding: 0 8px;
+      box-sizing: border-box;
+    }
+    .tableHeadItem, .tableDataItem {
+      padding: 16px 4px;
+      flex: 1;
+      text-align: center;
+      font-size: 20px;
+        @media (min-width: 1024px) {
+          font-size: 18px;
+        }
+      @media (max-width: 992px) {
+        &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+          display: none;
+        }
+      }
+      @media (max-width: 420px) {
+        &:nth-child(3) {
+          display: none;
+        }
       }
     }
-
-    .tableRow{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px 0 10px;
+    .tableBodyRow{
+      margin: 10px 0;
       width: 100%;
-      background: var(--table-row-color);
-      border-radius: 4px;
+      background: var(--secondary-row-color);
+      transition: all 0.4s ease-in-out;
       &:hover {
-        background: var(--table-row-hover)
+        background: var(--table-row-hover);
       }
       .tableDataItem{
-        padding: 1em;
-        flex: 1;
-        text-align: left;
+        font-size: 16px;
+        @media (max-width: 420px) {
+          font-size: 15px;
+        }
       }
       .buttonWrapper{
         display: flex;
-        gap: 7px;
+        flex: 1;
+        align-items: center;
+        justify-content: space-evenly;
+        @media (max-width: 992px) {
+          justify-content: center;
+          gap: 8px;
+        }
       }
     }
 
-}
+

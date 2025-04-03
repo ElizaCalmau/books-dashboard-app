@@ -2,14 +2,23 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
+  align-items: center;
+  justify-content: start;
   height: inherit;
-  padding-left: 2em;
-  .navItem{
-    color: var(--button-icon-color);
-    :hover{
-      color: white;
-    }
+  background: var(--sidebar-bg);
+  @media (max-width: 880px) {
+    display: none;
   }
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background: var(--light-bg);
+  border-radius: 10px;
+  margin: 30% 0;
+  justify-content: center;
+  align-items: start;
+  padding: 8px;
 }

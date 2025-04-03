@@ -6,9 +6,17 @@
   color: var(--button-color);
   font-size: 24px;
   font-weight: 600;
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
     &:hover{
-      color: var(--button-hover-color);
+      transform: scale(1.1);
     }
+  @media (max-width: 420px) {
+    svg{
+      transform: scale(1.2);
+      stroke-width: 1.5;
+    }
+  }
 }
 
 .activeButtonLink {

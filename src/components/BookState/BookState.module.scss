@@ -1,0 +1,28 @@
+.bookStateWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 25px;
+  button{
+    font-size: 13px;
+    background: var(--button-secondary-color);
+    &:hover{
+      background: var(--button-hover-color);
+    }
+  }
+}
+
+.indicatorWrapper{
+  display: flex;
+  p{
+    font-size: larger;
+    margin: 0 5px;
+    color: var(--secondary-color);
+  }
+  button:hover{
+    background-color: var(--button-hover-color);
+  }
+}

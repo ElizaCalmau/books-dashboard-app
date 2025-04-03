@@ -1,0 +1,61 @@
+.selectWrapper{
+  position: absolute;
+  right: 0;
+  transform: translateY(-4em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 209px;
+  height: fit-content;
+  background: #fff;
+  opacity: 90%;
+  color: var(--secondary-color);
+  padding: 8px;
+  border-radius: 10px;
+  @media (max-width: 1024px) {
+    width: 165px;
+  }
+  @media (max-width: 420px) {
+    left: 0;
+  }
+}
+
+.selectedOption{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 0.5em;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  &::before{
+    content: 'Show';
+  }
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+}
+
+.editPageSelect, .selectedOption{
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 4px;
+  box-sizing: border-box;
+  transform: none;
+  &::before{
+    content: '';
+  }
+}
+
+.arrowUp{
+  transform: rotate(180deg);
+  transition: transform .2s;
+}
+
+.arrowDown{
+  transform: rotate(360deg);
+  transition: transform .2s;
+}

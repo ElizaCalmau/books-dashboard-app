@@ -1,0 +1,19 @@
+
+.slideMenuHidden{
+  z-index: -1000;
+  display: flex;
+  gap: 4px;
+  padding-right: 8px;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: 0.2s;
+}
+.slideMenuVisible{
+  z-index: 1000;
+  transform: translateX(0);
+  opacity: 1;
+  transition: 0.2s;
+}
+.buttonWrapper{
+  z-index: 100;
+}

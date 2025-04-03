@@ -1,18 +1,30 @@
 import {useParams} from "react-router";
-import {InputLabel} from "./InputLabel.tsx";
-import {useGetBookDetails} from "../hooks/useGetBookDetails.ts";
+import {InputLabel} from "../InputLabel/InputLabel.tsx";
+import {useGetBookDetails} from "../../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
-import {Book, InputField, SUBMIT_BUTTON, categoryOptions, ValidationErrors} from "../constants.ts";
-import {formatDate} from "../utils/formatDate.ts";
-import {addBook, editBook, getBookById} from "../utils/bookService.ts";
-import {useBookContext} from "../context/BookContext.tsx";
-import {validator} from "../utils/validator.ts";
+import {
+    Book,
+    InputField,
+    SUBMIT_BUTTON,
+    categoryOptions,
+    ValidationErrors,
+    CategoryOption,
+    FilterOption
+} from "../../constants.ts";
+import {formatDate} from "../../utils/formatDate.ts";
+import {addBook, editBook, getBookById} from "../../utils/bookService.ts";
+import {useBookContext} from "../../context/BookContext.tsx";
+import {validator} from "../../utils/validator.ts";
 import { ToastContainer, toast } from 'react-toastify';
-import ValidationError from "./ValidationError/ValidationError.tsx";
+import ValidationError from "../ValidationError/ValidationError.tsx";
+import styles from "./EditPage.module.scss";
+import {StepBackIcon} from "lucide-react";
+import {BookState} from "../BookState/BookState.tsx";
+import {goBack} from "../../utils/utils.ts";
+
 
 export const EditPage = () => {
     const {id} = useParams();
-
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
     const { isNewBook, bookDetails, setBookDetails } = useBookContext();
     const notify = (message: string) => {
@@ -27,7 +39,8 @@ export const EditPage = () => {
     ];
 
     const submitButton: SUBMIT_BUTTON = isNewBook ? 'Add Book' : 'Update Book';
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: InputField) => {
+
+    const handleInputChange =(e: React.ChangeEvent<HTMLInputElement> , field: InputField) => {
         if(field.validationConditions){
             const error = validator({value: e.target.value, conditions: field.validationConditions}) || null;
             setValidationErrors((prevErrors) => {
@@ -43,6 +56,35 @@ export const EditPage = () => {
             id: id || prev.id,
         }));
     }
+
+    const handleSelectChange = (option: CategoryOption | FilterOption, field: InputField) => {
+        setBookDetails((prev: Book) => ({
+            ...prev,
+            [field.name]: option.label,
+            id: id || prev.id,
+        }));
+    };
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement> | CategoryOption | FilterOption,
+        field: InputField
+    ) => {
+        if ('label' in e) {
+            handleSelectChange(e as CategoryOption, field);
+        } else {
+            handleInputChange(e as React.ChangeEvent<HTMLInputElement>, field);
+
+        }
+    };
+
+    const handleBookState = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setBookDetails((prev) => ({
+            ...prev,
+            active: !bookDetails.active,
+        }))
+    }
+
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         const hasErrors = Object.values(validationErrors).some(error => error !== null);
@@ -74,17 +116,25 @@ export const EditPage = () => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                {bookDetails && inputFields.map((field: InputField) => {
-                    return (
-                        <>
-                            <InputLabel key={field.name} field={field} onChange={(e) => handleChange(e, field)}/>
-                                <ValidationError key={field.value} error={validationErrors[field.name]} />
-                        </>
-                    )
-                }
-                )}
-                <button type="submit">{submitButton}</button>
+            <form onSubmit={handleSubmit} className={styles.formWrapper}>
+                <div className={styles.form}>
+                    <h2>Please {isNewBook? 'add' : 'update'} a book </h2>
+                    {bookDetails && inputFields.map((field: InputField) => {
+                        return (
+                                <div className={styles.inputWrapper} key={field.name}>
+                                    <InputLabel field={field} onChange={(e:  React.ChangeEvent<HTMLInputElement> | CategoryOption | FilterOption) => handleChange(e, field)}/>
+                                    <div className={styles.validationError}>
+                                        <ValidationError key={field.value} error={validationErrors[field.name]} />
+                                    </div>
+                                </div>
+                        )
+                    }
+                    )}
+                    <BookState isActive={bookDetails.active} handleChange={handleBookState} />
+                    <button type="submit">{submitButton}</button>
+                </div>
+            <button onClick={goBack}
+            ><StepBackIcon /></button>
             </form>
             <ToastContainer />
         </>
