@@ -1,0 +1,9 @@
+.arrowUp{
+  transform: rotate(180deg);
+  transition: transform .2s;
+}
+
+.arrowDown{
+  transform: rotate(360deg);
+  transition: transform .2s;
+}
