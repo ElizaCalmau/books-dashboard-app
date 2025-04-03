@@ -1,16 +1,14 @@
+import styles from './AboutPage.module.scss';
+import {Header} from "../Header/Header.tsx";
+import {Section} from '../Section/Section.tsx'
 export const AboutPage = () => {
-    return (
-        <>
-            <header>
-                <h1>Books Dashboard Application</h1>
-                <p>Use the app to keep track of the books you've read 📚</p>
-            </header>
 
+    return (
+        <div className={styles.aboutWrapper}>
+            <Header />
             <main>
-                <section id="project-description">
-                    <h2>About the Project</h2>
-                    <p>This is a simple application to help users manage and track the books they have read. The Books Dashboard allows users to easily add, update, and delete books, and track important information such as the title, author, category, and status of the book.</p>
-                </section>
+
+                <Section title={'About the Project'} paragraph={'This is a simple application to help users manage and track the books they have read. The Books Dashboard allows users to easily add, update, and delete books, and track important information such as the title, author, category, and status of the book'}/>
 
                 <section id="app-structure">
                     <h2>The app structure 🏗️:</h2>
@@ -50,6 +48,6 @@ export const AboutPage = () => {
             <footer>
                 <p>&copy; 2025 Books Dashboard Application. All rights reserved.</p>
             </footer>
-        </>
+        </div>
     );
 };
