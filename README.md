@@ -8,6 +8,17 @@
 > 3. npx json-server db.json 🗃️
 > 4. npm run dev 🚀
 
+## Technologies used:
+- **React**: A JavaScript library for building user interfaces.
+- **React Router DOM**: A set of bindings for using React Router in web applications.
+- **UUID**: A library to generate unique identifiers .
+- **classnames**: A utility for conditionally joining class names together.
+- **JSON Server**: A simple REST API for testing and prototyping.
+- **SCSS**: A CSS preprocessor used for styling the application.
+- **Toast Notifications**: A component for showing success messages after changes.
+- **Lucide**: A set of high-quality, customizable icons used in the app.
+
+
 ## The app structure 🏗️:
 
 The application contains 2 pages:
