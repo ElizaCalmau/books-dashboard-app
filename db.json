@@ -2,42 +2,12 @@
   "books": [
     {
       "id": "1",
-      "title": "hello",
-      "author": "Matt Haig",
-      "category": "Fiction",
+      "title": "Atomic Habitг",
+      "author": "Matt Haigj",
+      "category": "Science",
       "isbn": "9780525559474",
       "createdAt": "12 March 2022, 8:35AM",
-      "modifiedAt": "13 March 2022, 1:48PM",
-      "active": true
-    },
-    {
-      "id": "2",
-      "title": "Atomic Habits",
-      "author": "James Clear",
-      "category": "Self-Help",
-      "isbn": "9780735211292",
-      "createdAt": "5 April 2021, 10:15AM",
-      "modifiedAt": "7 April 2021, 2:30PM",
-      "active": false
-    },
-    {
-      "id": "3",
-      "title": "Dune",
-      "author": "Frank Herbert",
-      "category": "Science Fiction",
-      "isbn": "9780441013593",
-      "createdAt": "18 June 2020, 9:00AM",
-      "modifiedAt": "20 June 2020, 4:45PM",
-      "active": true
-    },
-    {
-      "id": "4",
-      "title": "The Pragmatic Programmer",
-      "author": "Andrew Hunt & David Thomas",
-      "category": "Programming",
-      "isbn": "9780135957059",
-      "createdAt": "25 September 2019, 3:20PM",
-      "modifiedAt": "27 September 2019, 5:10PM",
+      "modifiedAt": "02 April 2025 at 08:35 pm",
       "active": false
     },
     {
@@ -47,8 +17,28 @@
       "category": "Finance",
       "isbn": "9780857197689",
       "createdAt": "10 January 2023, 7:45AM",
-      "modifiedAt": "12 January 2023, 11:20AM",
+      "modifiedAt": "02 April 2025 at 08:32 pm",
       "active": true
-    }
+    },
+    {
+      "id": "eab80c9e-c415-460c-a1df-5015f14bcb85",
+      "title": "You dk JS",
+      "author": "Andy Johnes",
+      "category": "Fiction",
+      "isbn": "123456789",
+      "createdAt": "31 March 2025 at 03:42 pm",
+      "modifiedAt": "02 April 2025 at 08:11 pm",
+      "active": false
+    },
+    {
+      "id": "958c749e-0862-4f1e-8dd0-99e9a4038afc",
+      "title": "Hello Andy",
+      "author": "Andy Johnes",
+      "category": "Fiction",
+      "isbn": "9780525559",
+      "createdAt": "02 April 2025 at 07:47 pm",
+      "modifiedAt": "02 April 2025 at 08:04 pm",
+      "active": true
+    },
   ]
 }
