@@ -15,7 +15,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
         setIsOpen(!isOpen);
     }
 
-    const option = options?.find(option => option.label.toLowerCase() == value);
+    const option = options?.find(option => option.label.toLowerCase() == value.toLowerCase());
     return (
         <div className={selectClassName} onClick={toggleOpen}>
             <div className={styles.selectedOption}>
