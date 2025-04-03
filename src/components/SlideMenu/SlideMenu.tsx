@@ -1,4 +1,4 @@
-import styles from './slideMenu.module.scss';
+import styles from './SlideMenu.module.scss';
 import {BookIcon, BookmarkPlusIcon} from "lucide-react";
 import classNames from "classnames";
 import {v4 as uuidv4} from "uuid";
