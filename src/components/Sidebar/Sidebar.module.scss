@@ -5,13 +5,7 @@
   align-items: center;
   justify-content: start;
   height: inherit;
-  background: #4496b1;
-  .navItem{
-    color: var(--button-icon-color);
-    :hover{
-      color: white;
-    }
-  }
+  background: var(--sidebar-bg);
   @media (max-width: 880px) {
     display: none;
   }
