@@ -2,9 +2,10 @@
   color: var(--button-color);
   height: 26px;
    &:hover {
-     color: var(--button-hover-color);
+     color: #fff;
      cursor: pointer;
      transition: all 0.3s ease-in-out;
+     transform: scale(1.1);
    }
   @media (max-width: 420px) {
     &:nth-child(3){
