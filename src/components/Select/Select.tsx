@@ -2,9 +2,9 @@ import {SelectProps} from "../../constants.ts";
 import React, {useState} from "react";
 import styles from "./Select.module.scss";
 import classNames from "classnames";
-import {ChevronDown} from "lucide-react";
 import {useLocation} from "react-router";
 import {Dropdown} from "../Dropdown/Dropdown.tsx";
+import {TwistingArrow} from "../TwistingArrow/TwistingArrow.tsx";
 
 export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     return (
         <div className={selectClassName} onClick={toggleOpen}>
             <div className={styles.selectedOption}>
-                {option?.label} <ChevronDown className={isOpen ? styles.arrowUp : styles.arrowDown} />
+                {option?.label} <TwistingArrow isOpen={isOpen} />
             </div>
             <Dropdown onClick={onClick} isOpen={isOpen} options={options}/>
         </div>
