@@ -15,7 +15,7 @@ export const Dropdown: React.FC<DropdownProps> = ({isOpen, options, onClick}) =>
         <>
             <ul className={dropdownClassNames}>
                 {options.map((option) => (
-                    <li className={styles.option} onClick={() => onClick(option)}>{option.label}</li>
+                    <li key={option.value} className={styles.option} onClick={() => onClick(option)}>{option.label}</li>
                 ))}
             </ul>
         </>
