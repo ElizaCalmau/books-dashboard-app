@@ -22,10 +22,12 @@
   --select-bg-color: linear-gradient(to bottom, #98D2C0, #75c2cb);
   --select-option-hover-color: #D9D9D9;
   --button-color: #FFF;
-  --button-active-color: #5bbdba;
+  --button-active-color: #70bbe1;
+  --secondary-button-active-color: #2e638d;
   --button-hover-color: #b2caee;
   --button-secondary-color: #e4e5e6;
   --sidebar-bg: #4496b1;
+  --section-color: #9DB8C3A6;
   --light-bg: #59a1b9;
   --light-bg-mobile: #59a1b9a3;
   --lime-green: #32cd32;
