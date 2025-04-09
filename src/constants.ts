@@ -117,3 +117,72 @@ export interface SelectProps extends Pick<InputField, "value"> {
 export interface ValidationErrors {
     [fieldName: string]: string | null;
 }
+
+export interface SectionProps {
+    title: string;
+    subtitle?: string;
+    paragraphs?: string[];
+    list?: string[];
+}
+
+export const aboutSections: SectionProps[] = [
+    {
+        title: 'About the Project',
+        paragraphs: [
+            'This is a simple application to help users manage and track the books they have read. The Books Dashboard allows users to easily add, update, and delete books, and track important information such as the title, author, category, and status of the book.'
+        ]
+    },
+    {
+        title: 'Home Page',
+        subtitle: 'The home page represents a dashboard',
+        paragraphs: [
+            'The Home Page represents a dashboard of books. Each dashboard row has properties such as book\'s title, author, category, ISBN, Created, Modified, and Actions.',
+            'The Actions column contains 3 buttons: Edit️, Delete️, and Update state️.',
+            'By clicking either the button or the dashboard row itself, the user will be redirected to the Update page.'
+        ]
+    },
+    {
+        title: 'Update Book Page',
+        subtitle: 'The Update Book Page represents a form that serves to edit an existing book.',
+        paragraphs: [
+            'If the user clicks on a dashboard row or \'Edit\' button, they will be redirected to the Update book page where they can change any book property, which will be reflected in the form\'s input.',
+            'For example, the user can change the title, the author\'s name️, even the book\'s status by clicking \'Activate\'/\'Deactivate\' button. To save changes (besides book\'s status), it is necessary to click \'Update book\' button at the very bottom of the form.',
+            'Notice that each input field has validation️, so keep an eye on it. If the validation is passed and everything\'s correct, the book will be updated, and the user will see a toast container with a success message. There\'s a \'Go Back\' button underneath the form that redirects the user to the previous page.'
+        ]
+    },
+    {
+        title: 'Add Book Page',
+        subtitle: 'The Add Book Page represents a form that serves to add a book to your list.',
+        paragraphs: [
+            'The Add Book page is similar to the Update Book page, with the only difference being that the inputs are empty, allowing the user to fill them in. The purpose of this page is to let the user add a new book by completing the form with the necessary details.',
+            'If the validation is passed and everything\'s correct, the book will be added and the user will see a toast container with a success message.',
+        ]
+    },
+    {
+        title: 'After Changes',
+        subtitle: 'After Changes being submitted',
+        paragraphs: [
+            'After the user has completed all the changes, they can go back to Home Page by clicking either the \'Go Back\' button or the \'Home\' button placed at the sidebar, and see all the changes implemented to the book, including the time when the book was created️ and modified (these fields are filled automatically).',
+        ]
+    },
+    {
+        title: 'Technologies used',
+        list: [
+            'React: A JavaScript library for building user interfaces.',
+            'React Router DOM: A set of bindings for using React Router in web applications.',
+            'UUID: A library to generate unique identifiers.',
+            'classnames: A utility for conditionally joining class names together.',
+            'JSON Server: A simple REST API for testing and prototyping.',
+            'SCSS: A CSS preprocessor used for styling the application.',
+            'Toast Notifications: A component for showing success messages after changes.',
+            'Lucide: A set of high-quality, customizable icons used in the app.'
+        ]
+    },
+    {
+        title: 'Design',
+        subtitle: 'The design of this application is fully responsive',
+        paragraphs: [
+            'It adapts to different screen sizes, ensuring a smooth user experience on both desktop and mobile devices.'
+        ]
+    }
+]
