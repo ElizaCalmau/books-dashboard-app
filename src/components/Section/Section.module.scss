@@ -50,7 +50,7 @@ main{
   transition: all 0.2s ease-in-out;
   padding: 16px;
   margin: 8px auto;
-  background: #9db8c1a6;
+  background: var(--section-color);
   border-radius: 10px;
     p{
       width: 80%;
