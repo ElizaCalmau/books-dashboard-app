@@ -7,14 +7,20 @@
   align-items: center;
 }
 
-
-  .open {
-    position: absolute;
-    top: 100px;
-    opacity: 1;
-  }
-  .close {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-  }
+.sectionHidden{
+  z-index: -1000;
+  display: flex;
+  padding-right: 8px;
+  opacity: 0;
+  transform: translateY(-30px);
+  height: 0;
+  transition: all 0.2s ease-in-out;
+}
+.sectionVisible{
+  z-index: 1000;
+  transform: translateY(0);
+  opacity: 1;
+  min-height: 50px;
+  height: fit-content;
+  transition: all 0.2s ease-in-out;
+}
