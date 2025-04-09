@@ -10,7 +10,13 @@
   transition: all 0.2s ease-in-out;
     &:hover{
       transform: scale(1.1);
+      color: var(--secondary-button-active-color);
     }
+  @media (max-width: 880px) {
+    &:hover{
+      color: unset;
+    }
+  }
   @media (max-width: 420px) {
     svg{
       transform: scale(1.2);
@@ -20,5 +26,9 @@
 }
 
 .activeButtonLink {
-  color: var(--button-active-color);
+  transition: all 0.2s ease-in-out;
+    color: var(--secondary-button-active-color);
+    @media (max-width: 880px) {
+      color: var(--button-active-color);
+    }
 }
