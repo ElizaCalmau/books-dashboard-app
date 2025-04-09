@@ -11,7 +11,7 @@
 ## Technologies used:
 - **React**: A JavaScript library for building user interfaces.
 - **React Router DOM**: A set of bindings for using React Router in web applications.
-- **UUID**: A library to generate unique identifiers .
+- **UUID**: A library to generate unique identifiers.
 - **classnames**: A utility for conditionally joining class names together.
 - **JSON Server**: A simple REST API for testing and prototyping.
 - **SCSS**: A CSS preprocessor used for styling the application.
