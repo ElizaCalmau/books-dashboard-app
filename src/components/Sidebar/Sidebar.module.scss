@@ -6,6 +6,7 @@
   justify-content: start;
   height: inherit;
   background: var(--sidebar-bg);
+  box-shadow: -3px 2px 5px 3px #5d5d5d;
   @media (max-width: 880px) {
     display: none;
   }
@@ -15,7 +16,7 @@
   display: flex;
   flex-direction: column;
   width: 90%;
-  background: var(--light-bg);
+  background: var(--light-blue);
   border-radius: 10px;
   margin: 30% 0;
   justify-content: center;
