@@ -1,0 +1,16 @@
+.contactsPageWrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  margin: 2em;
+  @media (max-width: 1440px) {
+    flex: 4;
+  }
+}
+
+img{
+  width: 30%;
+  float: right;
+  border-radius: 10px;
+  border: 2px solid white;
+}
