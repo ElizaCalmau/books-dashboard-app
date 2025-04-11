@@ -8,9 +8,9 @@
   justify-content: center;
   width: 209px;
   height: fit-content;
-  background: #fff;
+  background: var(--secondary-dark);
   opacity: 90%;
-  color: var(--secondary-color);
+  color: var(--primary-white);
   padding: 8px;
   border-radius: 10px;
   @media (max-width: 1024px) {
@@ -30,6 +30,8 @@
   width: 100%;
   font-weight: bold;
   font-size: 20px;
+  color: var(--light-blue);
+  background: var(--secondary-dark);
   &::before{
     content: 'Show';
   }
@@ -38,7 +40,7 @@
     }
 }
 
-.editPageSelect, .selectedOption{
+.editPageSelect, .selectedOption{//change order so this class selectedOption will only be applied when editpage class is active
   position: relative;
   width: 100%;
   margin: 0;
@@ -48,14 +50,6 @@
   &::before{
     content: '';
   }
-}
-
-.arrowUp{
-  transform: rotate(180deg);
-  transition: transform .2s;
-}
-
-.arrowDown{
-  transform: rotate(360deg);
-  transition: transform .2s;
+  background: var(--light-blue);
+  color: var(--secondary-dark);
 }
