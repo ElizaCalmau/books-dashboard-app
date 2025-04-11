@@ -1,5 +1,5 @@
 import styles from './SlideMenu.module.scss';
-import {BookIcon, BookmarkPlusIcon, InfoIcon} from "lucide-react";
+import {BookIcon, BookmarkPlusIcon, ContactRoundIcon, InfoIcon} from "lucide-react";
 import classNames from "classnames";
 import {v4 as uuidv4} from "uuid";
 import {ButtonLink} from "../ButtonLink/ButtonLink.tsx";
@@ -13,6 +13,7 @@ export const SlideMenu = ({isOpen}: {isOpen: boolean}) => {
             <ButtonLink path='/' icon={<BookIcon size={30}/>}/>
             <ButtonLink path={`/update-book/${id}`} icon={<BookmarkPlusIcon size={30}/>}/>
             <ButtonLink path='/about' icon={<InfoIcon size={30}/>}/>
+            <ButtonLink path='/contacts' icon={<ContactRoundIcon size={30}/>} />
         </div>
     );
 };
