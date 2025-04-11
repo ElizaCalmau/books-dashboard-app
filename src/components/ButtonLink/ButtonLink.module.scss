@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: var(--button-color);
+  color: var(--dark-blue);
   font-size: 24px;
   font-weight: 600;
   padding: 5px;
   transition: all 0.2s ease-in-out;
     &:hover{
       transform: scale(1.1);
-      color: var(--secondary-button-active-color);
+      color: var(--dark-blue);
     }
   @media (max-width: 880px) {
     &:hover{
@@ -27,7 +27,7 @@
 
 .activeButtonLink {
   transition: all 0.2s ease-in-out;
-    color: var(--secondary-button-active-color);
+    color: var(--dark-blue);
     @media (max-width: 880px) {
       color: var(--button-active-color);
     }
