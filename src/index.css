@@ -12,21 +12,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary-font: #f9f9f9;
-  --root-color: linear-gradient(90deg, #2e638d, #1d5b78);
-  --secondary-color: #242424;
-  --table-row-color: #5aabc5;
-  --secondary-row-color: #58a1b9;
-  --table-row-hover: #6dbdd6;
-  --table-header-color: #98D2C0;
+  --primary-white: #f9f9f9;
+  --root-color: linear-gradient(90deg, #8ac6db, #4ba3c7);
+  --dark-blue: #2a6f97;
+  --sidebar-bg: #a8dadc;
+  --light-blue: #f0f8ff;
+  --sky-blue: #93d3ee;
+  --table-row-hover: #a7d3e7;
+  --secondary-dark: #242424;
   --select-bg-color: linear-gradient(to bottom, #98D2C0, #75c2cb);
   --select-option-hover-color: #D9D9D9;
   --button-color: #FFF;
   --button-active-color: #70bbe1;
-  --secondary-button-active-color: #2e638d;
-  --button-hover-color: #b2caee;
+  --button-hover-color: #e4e5e6;
   --button-secondary-color: #e4e5e6;
-  --sidebar-bg: #4496b1;
   --section-color: #9DB8C3A6;
   --light-bg: #59a1b9;
   --light-bg-mobile: #59a1b9a3;
@@ -43,7 +42,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #fff;
+  color: var(--primary-white);
 }
 
 #body {
@@ -53,8 +52,8 @@ a:hover {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  background: var(--secondary-color);
-  color: var(--primary-font);
+  background: var(--secondary-dark);
+  color: var(--primary-white);
   margin: 0
 }
 
@@ -85,10 +84,10 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color:var(--primary-white);
   }
   a:hover {
-    color: #fff;
+    color: var(--primary-white);
   }
   button {
     background-color: #f9f9f9;
