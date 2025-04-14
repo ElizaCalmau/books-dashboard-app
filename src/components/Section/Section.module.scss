@@ -19,6 +19,7 @@ main{
   border-radius: 10px;
   padding: 0 10px;
   width: 100%;
+  box-sizing: border-box;
   &:hover{
   transform: translateX(6px);
   }
@@ -47,13 +48,13 @@ main{
   opacity: 1;
   min-height: 50px;
   height: fit-content;
+  width: 90%;
   transition: all 0.2s ease-in-out;
   padding: 16px;
   margin: 8px auto;
   background: var(--section-color);
   border-radius: 10px;
     p{
-      width: 80%;
       font-size: 18px;
       font-weight: 200;
     }
