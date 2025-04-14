@@ -3,14 +3,32 @@
   flex-direction: column;
   flex: 3;
   margin: 2em;
-  @media (max-width: 1440px) {
+  @media (min-width: 1440px) {
     flex: 4;
   }
 }
-
-img{
-  width: 30%;
-  float: right;
-  border-radius: 10px;
-  border: 2px solid white;
+.introductionWrapper{
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  .aboutMe{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+  }
+    .avatarWrapper{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      p{
+        font-size: 14px;
+        font-weight: 600;
+      }
+      img{
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid white;
+      }
+  }
 }
