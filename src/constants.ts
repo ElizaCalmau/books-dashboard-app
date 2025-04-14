@@ -122,7 +122,11 @@ export interface SectionProps {
     title: string;
     subtitle?: string;
     paragraphs?: string[];
-    list?: string[];
+    list?: {
+        name: string;
+        description?: string;
+        url?: string;
+    }[];
 }
 
 export const aboutSections: SectionProps[] = [

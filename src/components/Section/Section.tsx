@@ -25,9 +25,11 @@ export const Section: React.FC<SectionProps> = ({title, paragraphs, list, subtit
                 </p>
                 ))}
                 <ul>
-                    {list?.map((listItem) => (
-                        <li key={listItem}>
-                            {listItem}
+                    {list?.map(({name, description, url}) => (
+                        <li key={name}>
+                            <span>{name} </span>
+                            {description && <p>{description}</p>}
+                            {url && <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>}
                         </li>
                     ))}
                 </ul>
