@@ -3,6 +3,7 @@
   flex-direction: column;
   flex: 3;
   margin: 2em;
+  text-align: left;
   @media (min-width: 1440px) {
     flex: 4;
   }
@@ -15,11 +16,17 @@
     display: flex;
     flex-direction: column;
     flex: 3;
+      article{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
   }
     .avatarWrapper{
       display: flex;
       flex-direction: column;
       flex: 1;
+      margin: 2em 1em;
       p{
         font-size: 14px;
         font-weight: 600;
