@@ -1,7 +1,8 @@
 import styles from './ContactsPage.module.scss';
-import image from '../../assets/ph.png';
 import {Section} from "../Section/Section.tsx";
 import {contactsSection} from "../../constants.ts";
+import {DesktopAvatar} from "../DesktopAvatar/DesktopAvatar.tsx";
+import {SmallAvatar} from "../SmallAvatar/SmallAvatar.tsx";
 
 export const ContactsPage = () => {
     return (
@@ -18,13 +19,8 @@ export const ContactsPage = () => {
                             ))}
                         </article>
                     </div>
-
-
-                <div className={styles.avatarWrapper}>
-                    <img src={image} alt="Elizabeth's photo" />
-                    <p>Elizabeth, Frontend Engineer</p>
-                    <span>React, TypeScript, Next.js</span>
-                </div>
+                <DesktopAvatar />
+                <SmallAvatar />
             </div>
         </div>
     );

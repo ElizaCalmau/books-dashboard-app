@@ -22,26 +22,8 @@
         gap: 10px;
       }
   }
-    .avatarWrapper{
-      display: flex;
-      flex-direction: column;
-      flex: 2;
-      margin: 2em 1em;
-      cursor: pointer;
-      text-align: center;
-      p{
-        font-size: 17px;
-        font-weight: 600;
-        margin-bottom: 0;
-      }
-      span{
-        font-size: 14px;
-      };
-      img{
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        border: 2px solid white;
-      }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    text-align: center;
   }
 }
