@@ -190,3 +190,44 @@ export const aboutSections: SectionProps[] = [
         ]
     }
 ]
+
+export const contactsSection: SectionProps[] = [
+    {
+        title: 'Experience',
+        paragraphs: [
+            'With 1.5 years of experience under my belt, I\'ve become quite skilled in crafting user-friendly interfaces using React and TypeScript. My latest project is a dashboard books app, built with React and TS, showcasing my love for organized information and clean, maintainable code.',
+            'I\'m also proficient in developing scalable UI architectures, managing complex state with Redux, and seamlessly integrating with RESTful APIs. I\'m always eager to explore new technologies and approaches to create the best possible user experience.'
+        ]
+    },
+    {
+        title: 'Skills',
+        list: [
+            { name: 'HTML5' },
+            { name: 'CSS3' },
+            { name: 'Tailwind CSS' },
+            { name: 'SASS' },
+            { name: 'JavaScript' },
+            { name: 'TypeScript' },
+            { name: 'React' },
+            { name: 'Redux' },
+            { name: 'Next.js' },
+            { name: 'Node.js' },
+            { name: 'MongoDB' },
+            { name: 'MySQL' },
+            { name: 'Sanity CMS' }
+        ]
+    },
+    {
+        title: 'Other projects',
+        subtitle: 'Startup dashboard CMS, Next.js',
+    },
+    {
+        title: 'Contacts',
+        subtitle: 'Feel free to contact me',
+        list: [
+            { name: "Linkedin", url: 'https://www.linkedin.com/in/yelyzaveta-lysenko-ab452b287/' },
+            { name: "GitHub", url: 'https://github.com/ElizaCalmau?tab=repositories' },
+            { name: "Email", url: 'elizabethcalmau@gmail.com' }
+        ]
+    }
+]
