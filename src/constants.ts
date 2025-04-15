@@ -172,14 +172,14 @@ export const aboutSections: SectionProps[] = [
     {
         title: 'Technologies used',
         list: [
-            'React: A JavaScript library for building user interfaces.',
-            'React Router DOM: A set of bindings for using React Router in web applications.',
-            'UUID: A library to generate unique identifiers.',
-            'classnames: A utility for conditionally joining class names together.',
-            'JSON Server: A simple REST API for testing and prototyping.',
-            'SCSS: A CSS preprocessor used for styling the application.',
-            'Toast Notifications: A component for showing success messages after changes.',
-            'Lucide: A set of high-quality, customizable icons used in the app.'
+            { name: 'React', description: 'A JavaScript library for building user interfaces.' },
+            { name: 'React Router DOM', description: 'A set of bindings for using React Router in web applications.' },
+            { name: 'UUID', description: 'A library to generate unique identifiers.' },
+            { name: 'classnames', description: 'A utility for conditionally joining class names together.' },
+            { name: 'JSON Server', description: 'A simple REST API for testing and prototyping.' },
+            { name: 'SCSS', description: 'A CSS preprocessor used for styling the application.' },
+            { name: 'Toast Notifications', description: 'A component for showing success messages after changes.' },
+            { name: 'Lucide', description: 'A set of high-quality, customizable icons used in the app.' }
         ]
     },
     {
