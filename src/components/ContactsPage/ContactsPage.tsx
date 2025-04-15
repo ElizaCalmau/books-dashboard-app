@@ -23,6 +23,7 @@ export const ContactsPage = () => {
                 <div className={styles.avatarWrapper}>
                     <img src={image} alt="Elizabeth's photo" />
                     <p>Elizabeth, Frontend Engineer</p>
+                    <span>React, TypeScript, Next.js</span>
                 </div>
             </div>
         </div>
