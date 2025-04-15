@@ -1,0 +1,11 @@
+.aboutWrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  margin: 3em 2em;
+  text-align: left;
+  @media (min-width: 1440px) {
+    flex: 4
+  }
+}
+

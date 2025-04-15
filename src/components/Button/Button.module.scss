@@ -1,11 +1,12 @@
 .button {
-  color: var(--button-color);
+  color: var(--dark-blue);
   height: 26px;
+  transition: all 0.3s ease-in-out;
    &:hover {
-     color: #fff;
+     color: var(--primary-white);
      cursor: pointer;
-     transition: all 0.3s ease-in-out;
      transform: scale(1.1);
+     color: var(--dark-blue);
    }
   @media (max-width: 420px) {
     &:nth-child(3){

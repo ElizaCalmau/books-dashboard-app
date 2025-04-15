@@ -6,15 +6,13 @@
   border-collapse: collapse;
   white-space: normal;
     }
-    tr:nth-child(even) {
-      background-color: var(--table-row-color);
-    }
+
     .tableHeadRow, .tableBodyRow{
       display: flex;
       align-items: center;
       justify-content: start;
       width: 100%;
-      background-color: var(--table-header-color);
+      background-color: var(--dark-blue);
       border-radius: 10px;
       padding: 0 8px;
       box-sizing: border-box;
@@ -41,10 +39,11 @@
     .tableBodyRow{
       margin: 10px 0;
       width: 100%;
-      background: var(--secondary-row-color);
+      background: var(--light-blue);
+      color: var(--dark-blue);
       transition: all 0.4s ease-in-out;
       &:hover {
-        background: var(--table-row-hover);
+        background: var(--dim-blue);
       }
       .tableDataItem{
         font-size: 16px;

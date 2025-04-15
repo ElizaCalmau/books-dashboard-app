@@ -1,0 +1,29 @@
+.contactsPageWrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  margin: 2em;
+  text-align: left;
+  @media (min-width: 1440px) {
+    flex: 4;
+  }
+}
+.introductionWrapper{
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  .aboutMe{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+      article{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}

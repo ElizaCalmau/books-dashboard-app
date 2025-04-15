@@ -3,14 +3,16 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  background: #fff;
+  background: var(--primary-white);
   padding: 10px;
   margin-bottom: 25px;
   button{
     font-size: 13px;
-    background: var(--button-secondary-color);
+    background: var(--dark-blue);
+    opacity: 0.8;
+    color: var(--primary-white);
     &:hover{
-      background: var(--button-hover-color);
+      background: var(--light-grey);
     }
   }
 }
@@ -20,9 +22,7 @@
   p{
     font-size: larger;
     margin: 0 5px;
-    color: var(--secondary-color);
-  }
-  button:hover{
-    background-color: var(--button-hover-color);
+    color: var(--secondary-dark);
+    opacity: 0.8;
   }
 }

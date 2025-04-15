@@ -3,14 +3,22 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: var(--button-color);
+  color: var(--dim-green);
   font-size: 24px;
   font-weight: 600;
   padding: 5px;
+  text-transform: uppercase;
   transition: all 0.2s ease-in-out;
     &:hover{
       transform: scale(1.1);
+      color: var(--dark-blue);
     }
+  @media (max-width: 880px) {
+    color: var(--dark-blue);
+    &:hover{
+      color: unset;
+    }
+  }
   @media (max-width: 420px) {
     svg{
       transform: scale(1.2);
@@ -20,5 +28,9 @@
 }
 
 .activeButtonLink {
-  color: var(--button-active-color);
+  transition: all 0.2s ease-in-out;
+    color: var(--dark-blue);
+    @media (max-width: 880px) {
+      color: var(--primary-white);
+    }
 }
