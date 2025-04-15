@@ -77,15 +77,3 @@ button:focus-visible {
   outline: 4px auto var(--button-hover-color);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color:var(--primary-white);
-  }
-  a:hover {
-    color: var(--primary-white);
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
