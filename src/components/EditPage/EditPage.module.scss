@@ -6,6 +6,7 @@
   align-items: center;
   flex: 3;
   margin: 2em;
+  transition: all 0.5s ease;
   @media (min-width: 1440px) {
     flex: 4;
   }
@@ -37,7 +38,6 @@
   @media (max-width: 420px) {
     width: 100%;
     border-radius: 0;
-    background-color: var(--light-bg-mobile);
     padding: 16px;
     box-sizing: border-box;
   }
