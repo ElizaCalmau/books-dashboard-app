@@ -13,12 +13,24 @@
   color: var(--primary-white);
   padding: 8px;
   border-radius: 10px;
-  @media (max-width: 1024px) {
-    width: 165px;
-  }
-  @media (max-width: 420px) {
-    left: 0;
-  }
+
+    &.editPageSelect {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 4px;
+      box-sizing: border-box;
+      transform: none;
+      background: var(--light-blue);
+      color: var(--secondary-dark);
+    }
+
+    @media (max-width: 1024px) {
+      width: 165px;
+    }
+    @media (max-width: 420px) {
+      left: 0;
+    }
 }
 
 .selectedOption{
@@ -32,6 +44,7 @@
   font-size: 20px;
   color: var(--light-blue);
   background: var(--secondary-dark);
+  box-sizing: border-box;
   &::before{
     content: 'Show';
   }
@@ -40,16 +53,11 @@
     }
 }
 
-.editPageSelect, .selectedOption{//change order so this class selectedOption will only be applied when editpage class is active
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 4px;
-  box-sizing: border-box;
-  transform: none;
-  &::before{
-    content: '';
-  }
+.selectedOptionEditPage{
   background: var(--light-blue);
   color: var(--secondary-dark);
+  padding: 4px;
+    &::before{
+      content: '';
+    }
 }

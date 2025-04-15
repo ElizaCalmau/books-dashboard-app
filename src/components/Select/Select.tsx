@@ -11,6 +11,8 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const location = useLocation();
     const editPage = location.pathname.split("/").some((el) => el == 'update-book');
     const selectClassName = classNames(styles.selectWrapper, {[styles.editPageSelect]: editPage});
+    const selectedOptionClassName = classNames(styles.selectedOption, {[styles.selectedOptionEditPage]: editPage});
+    console.log('editPage', editPage);
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }
@@ -18,7 +20,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const option = options?.find(option => option.label.toLowerCase() == value.toLowerCase());
     return (
         <div className={selectClassName} onClick={toggleOpen}>
-            <div className={styles.selectedOption}>
+            <div className={selectedOptionClassName}>
                 {option?.label} <TwistingArrow isOpen={isOpen} />
             </div>
             <Dropdown onClick={onClick} isOpen={isOpen} options={options}/>
