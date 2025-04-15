@@ -130,7 +130,7 @@ export const EditPage = () => {
                         )
                     }
                     )}
-                    <h3>Book state:</h3>
+                    <h3>Book status:</h3>
                     <BookState isActive={bookDetails.active} handleChange={handleBookState} />
                     <button type="submit">{submitButton}</button>
                 </div>
