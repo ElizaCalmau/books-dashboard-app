@@ -39,7 +39,7 @@ By clicking either the **Edit** button or the dashboard row itself, the user wil
 If the user clicks on a _dashboard row_ or _Edit_ button️, they will be redirected to the **Update book** page where they can change any book property, which will be reflected in the form's input ✍️
 
 For example, the user can change the title, the author's name, even the book's status by clicking _Activate/Deactivate_ button.  
-To save changes (besides book's status), it is necessary to click _Update book_ button at the very bottom of the form 📋
+To save changes (including book's status), it is necessary to click _Update book_ button at the very bottom of the form 📋
 
 Notice that each input field has validation ✅️ so keep an eye on it 👀  
 If the validation is passed and everything's correct, the book will be updated, and the user will see a toast container with a success message 🎉  

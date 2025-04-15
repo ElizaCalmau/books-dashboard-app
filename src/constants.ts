@@ -150,7 +150,7 @@ export const aboutSections: SectionProps[] = [
         subtitle: 'The Update Book Page represents a form that serves to edit an existing book.',
         paragraphs: [
             'If the user clicks on a dashboard row or \'Edit\' button, they will be redirected to the Update book page where they can change any book property, which will be reflected in the form\'s input.',
-            'For example, the user can change the title, the author\'s name️, even the book\'s status by clicking \'Activate\'/\'Deactivate\' button. To save changes (besides book\'s status), it is necessary to click \'Update book\' button at the very bottom of the form.',
+            'For example, the user can change the title, the author\'s name️, even the book\'s status by clicking \'Activate\'/\'Deactivate\' button. To save changes (including book\'s status), it is necessary to click \'Update book\' button at the very bottom of the form.',
             'Notice that each input field has validation️, so keep an eye on it. If the validation is passed and everything\'s correct, the book will be updated, and the user will see a toast container with a success message. There\'s a \'Go Back\' button underneath the form that redirects the user to the previous page.'
         ]
     },
