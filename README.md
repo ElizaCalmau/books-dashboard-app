@@ -51,6 +51,12 @@ If the validation is passed ✅ and everything's correct, the book will be added
 
 After the user has completed all the changes 🔄 they can go back to **Home Page** 🏠 by clicking either the _Go Back_ button ⏮️ or the _Home_ button placed at the sidebar, and see all the changes implemented to the book 📚 including the time when the book was created and modified 🗓️ (these fields are filled automatically).
 
+### About Page 
+**The About Page** provides comprehensive information regarding the project's structure and the technologies utilized.
+
+### Contacts Page
+**The Contacts Page** The Contacts Page offers details about the project's author and includes links for contacting them.
+
 ## Design
 
 The design of this application is fully responsive 📱💻
