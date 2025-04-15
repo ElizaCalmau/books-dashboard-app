@@ -15,19 +15,11 @@
   --sidebar-bg: #a8dadc;
   --light-blue: #f0f8ff;
   --sky-blue: #93d3ee;
-  --table-row-hover: #a7d3e7;
   --dim-blue: #cde6f2;
   --dim-green:#6f919f;
   --secondary-dark: #242424;
-  --select-bg-color: linear-gradient(to bottom, #98D2C0, #75c2cb);
-  --select-option-hover-color: #D9D9D9;
-  --button-color: #FFF;
-  --button-active-color: #70bbe1;
-  --button-hover-color: #e4e5e6;
-  --button-secondary-color: #e4e5e6;
+  --light-grey: #D9D9D9;
   --section-color: #9DB8C3A6;
-  --light-bg: #59a1b9;
-  --light-bg-mobile: #59a1b9a3;
   --lime-green: #32cd32;
   --lime-green-light: #32cd32cc;
   --red: #ff4c4c;
@@ -53,7 +45,8 @@ a:hover {
   width: 100%;
   background: var(--secondary-dark);
   color: var(--primary-white);
-  margin: 0
+  margin: 0;
+  transition: all 0.5s ease;
 }
 
 h1 {
@@ -69,13 +62,14 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  text-transform: uppercase;
   transition: background-color 0.25s;
 }
 button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--light-grey);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto var(--button-hover-color);
+  outline: 4px auto var(--light-grey);
 }
 
