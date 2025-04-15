@@ -20,6 +20,12 @@
   color: var(--dark-blue);
   padding: 2em;
   border-radius: 10px;
+
+    h3{
+      margin: 0;
+      font-size: 1.19rem;
+    }
+
   @media (max-width: 768px) {
     width: 80%;
   }
