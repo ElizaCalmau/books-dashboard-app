@@ -19,9 +19,14 @@ export const getAllBooks = async (): Promise<Book[]> => {
 }
 
 export const getBookById = async (param: string | number) => {
-    const response = await fetch(`${BASE_URL}${param}`);
-    if(!response.ok){
-        console.log(`Failed to fetch data from ${BASE_URL}${param}`);
+    const {data, error}: PostgrestSingleResponse<Book[]> = await supabase
+        .from('books')
+        .select('title, author, category, isbn, created_at, modified_at, active, id')
+        .eq('id', param)
+        .single()
+
+    if(error){
+        console.log(error.message);
         return null;
     }
     return response.json();
