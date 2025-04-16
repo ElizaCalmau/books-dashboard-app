@@ -14,8 +14,7 @@ export const getAllBooks = async (): Promise<Book[]> => {
     if(error){
         throw new Error(`Failed to fetch data`);
     }
-    return response.json();
-
+    return data;
 
 }
 
