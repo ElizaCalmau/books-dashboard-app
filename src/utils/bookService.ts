@@ -1,9 +1,17 @@
 
 import {BASE_URL, Book} from "../constants.ts";
+import {createClient, PostgrestSingleResponse} from "@supabase/supabase-js";
 
-export const getAllBooks = async () => {
-    const response = await fetch(BASE_URL);
-    if(!response.ok){
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+export const getAllBooks = async (): Promise<Book[]> => {
+    const { data, error }: PostgrestSingleResponse<Book[]>  = await supabase
+        .from('books')
+        .select('title, author, category, isbn, created_at, modified_at, active, id')
+    if(error){
         throw new Error(`Failed to fetch data`);
     }
     return response.json();
