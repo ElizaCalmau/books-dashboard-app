@@ -68,7 +68,7 @@ export const editBook = async ({id, details}:{id: string, details: Book}) => {
 
     } catch (error){
         console.log(error)
-        return (error)
+        throw error;
     }
 }
 
