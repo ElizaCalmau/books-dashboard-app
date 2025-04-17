@@ -87,37 +87,38 @@ export const EditPage = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+
         const hasErrors = Object.values(validationErrors).some(error => error !== null);
-        if(hasErrors) {
+        if (hasErrors) {
             notify("Something went wrong");
             return;
         }
-        try {
-            if(id){
-                const existingBook = await getBookById(id);
-                if (existingBook) {
-                    const updatedBookDetails: Book = {
-                        ...bookDetails,
-                        modifiedAt: formatDate(new Date()),
-                    };
-                    await editBook({ id , details: updatedBookDetails }).then((response) => {
-                            notify(response.message)
-                    })
-                } else {
-                    const newBookDetails = {
-                        ...bookDetails,
-                        createdAt: formatDate(new Date()),
-                    };
-                    await addBook({details: newBookDetails}).then((response) => {
-                        notify(response.message)
-                    })
 
-                }
+        if (!id) return;
+
+        try {
+            const existingBook = await getBookById(id);
+
+            const timestamp = new Date().toISOString();
+            const bookData: Book = {
+                ...bookDetails,
+                [existingBook ? 'modified_at' : 'created_at']: timestamp,
+            };
+
+            if (existingBook) {
+                const res = await editBook({ id, details: bookData });
+                notify(res);
+            } else {
+                const res = await addBook({ details: bookData });
+                notify(res);
             }
-        } catch (error) {
-            console.error("Error checking if book exists:", error);
+
+        } catch (error: any) {
+            console.error("Error handling book submission:", error);
+            notify(error.message || "Unexpected error occurred");
         }
-    }
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit} className={styles.formWrapper}>
