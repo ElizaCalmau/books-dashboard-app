@@ -7,7 +7,7 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export const getAllBooks = async (): Promise<Book[]> => {
+export const getAllBooks = async (): Promise<Book[] | undefined> => {
     try{
     const { data, error }: PostgrestSingleResponse<Book[]>  = await supabase
         .from('books')
