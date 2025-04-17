@@ -1,11 +1,10 @@
 import {Book, TABLE_HEADERS} from "../../constants.ts";
 import {Button} from "../Button/Button.tsx";
-import {deleteBook, getAllBooks, updateBookState} from "../../utils/bookService.ts";
+import {deleteBook,} from "../../utils/bookService.ts";
 import {ButtonLink} from "../ButtonLink/ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
 import { v4 as uuidv4 } from 'uuid';
-import {useBooksContext} from "../../context/BooksContext.tsx";
 import {
     ShieldCheckIcon,
     ShieldMinusIcon,
@@ -13,14 +12,15 @@ import {
     Trash2Icon
 } from "lucide-react";
 import classNames from "classnames";
-import {useNavigate} from "react-router-dom";
+import {useHandleNavigation} from "../../hooks/useHandleNavigation.tsx";
 import React from "react";
-
+import {toast, ToastContainer} from "react-toastify";
+import {serviceHandler} from "../../utils/utils.ts";
+import {useHandleBookStateUpdate} from "../../hooks/useHandleBookStateUpdate.ts";
 export const Table = ({books} : {books: Book[]}) => {
     const notify = (message: string) => {
         toast(message);
     }
-
     const handleNavigation = useHandleNavigation();
     const handleBookStateUpdate = useHandleBookStateUpdate();
     if(books.length > 0){
@@ -52,15 +52,15 @@ export const Table = ({books} : {books: Book[]}) => {
                                 <Button icon={book.active ? <ShieldCheckIcon /> : <ShieldMinusIcon />}
                                         onClick={(event: React.MouseEvent) => {
                                             event.stopPropagation();
-                                            void handleBookStateUpdate({ id, book });
+                                            void handleBookStateUpdate({ id, book, notify });
                                         }}/>
-                                {/*TODO: make a green or red light for book state*/}
                             </td>
                         </tr>
 
                     })}
                     </tbody>
                 </table>
+                <ToastContainer />
             </>
         );
     }
