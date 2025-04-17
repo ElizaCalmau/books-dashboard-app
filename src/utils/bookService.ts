@@ -32,7 +32,6 @@ export const getBookById = async (param: string | number) => {
     } catch(error){
         console.log(error);
     }
-    return response.json();
 }
 
 export const addBook = async ({details} : {details: Book}) => {
