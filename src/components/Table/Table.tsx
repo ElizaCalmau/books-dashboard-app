@@ -59,7 +59,12 @@ export const Table = ({books} : {books: Book[]}) => {
                                 <ButtonLink icon={<SquarePenIcon />} path={`/update-book/${id}`}/>
                                 <Button icon={<Trash2Icon />} onClick={(event: React.MouseEvent) => {
                                     event.stopPropagation();
-                                    void deleteBook(id)}
+                                   try{
+                                       const res = await deleteBook(id);
+                                       notify(res);
+                                   } catch (err: any){
+                                       notify(err.message);
+                                   }
                                 }
                                     />
                                 <Button icon={book.active ? <ShieldCheckIcon /> : <ShieldMinusIcon />}
