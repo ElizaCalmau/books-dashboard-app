@@ -48,7 +48,7 @@ export const addBook = async ({details} : {details: Book}) => {
        throw new Error (`Failed to add book ${details.title}`);
     }
 
-    return {message: `The book ${details.title} has been added successfully.`};
+    return (`The book ${details.title} has been added successfully.`);
     } catch(error){
         console.log(error);
         return error
