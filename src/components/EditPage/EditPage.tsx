@@ -108,7 +108,9 @@ export const EditPage = () => {
                         ...bookDetails,
                         createdAt: formatDate(new Date()),
                     };
-                    await addBook({data: newBookDetails}).then(() => {notify('You have been added a book successfully.')});
+                    await addBook({details: newBookDetails}).then((response) => {
+                        notify(response.message)
+                    })
 
                 }
             }
