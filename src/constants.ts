@@ -44,9 +44,9 @@ export interface Book {
     title: string,
     author: string,
     category: CategoryType,
-    isbn: string,
-    createdAt: string,
-    modifiedAt: string,
+    isbn: number,
+    created_at: string | undefined,
+    modified_at: string | undefined,
     active: boolean,
 }
 
