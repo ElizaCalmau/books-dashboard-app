@@ -10,7 +10,7 @@ export enum TABLE_HEADERS {
     ACTIVE = "Active",
 }
 
-export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller';
+export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller' | 'fantasy';
 
 export interface CategoryOption {
     label: string;
@@ -22,6 +22,7 @@ export const categoryOptions: CategoryOption[] = [
     {label: 'Finance', value: 'finance'},
     {label: 'Science', value: 'science'},
     {label: 'Thriller', value: 'thriller'},
+    {label: 'Fantasy', value: 'fantasy'}
 ];
 
 export interface FilterOption {
