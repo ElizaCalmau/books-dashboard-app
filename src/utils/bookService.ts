@@ -8,6 +8,7 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const getAllBooks = async (): Promise<Book[]> => {
+    try{
     const { data, error }: PostgrestSingleResponse<Book[]>  = await supabase
         .from('books')
         .select('title, author, category, isbn, created_at, modified_at, active, id')
@@ -15,6 +16,9 @@ export const getAllBooks = async (): Promise<Book[]> => {
         throw new Error(`Failed to fetch data`);
     }
     return data;
+    } catch (error) {
+        console.error(error);
+    }
 
 }
 
