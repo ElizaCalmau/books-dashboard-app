@@ -99,7 +99,7 @@ export const deleteBook = async (id: string) => {
             throw new Error(`Failed to delete book, ${error.message}`);
         }
         window.location.reload();
-        return {message: `The book has been deleted successfully.`};
+        return (`The book has been deleted successfully.`);
     } catch (error) {
         console.log(error)
         return error;
