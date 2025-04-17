@@ -67,16 +67,19 @@ export const updateBookState = async ({id, isActivated}:{id: string, isActivated
 }
 
 export const deleteBook = async (id: string) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json',
+    try{
+        const { error } = await supabase
+            .from('books')
+            .delete()
+            .eq('id', id)
+
+        if(error){
+            throw new Error(`Failed to delete book, ${error.message}`);
         }
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to delete book');
-        }
-        return response.json();
-    })
-    window.location.reload();
+        window.location.reload();
+        return {message: `The book has been deleted successfully.`};
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
 }
