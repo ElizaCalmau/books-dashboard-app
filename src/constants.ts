@@ -66,13 +66,14 @@ export interface BookContextType {
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
     setBookDetails: (bookDetails: (prev: Book) => {
+        [p: number]: any;
         id: string;
         title: string;
         author: string;
         category: CategoryType;
         isbn: number;
-        created_at: string;
-        modified_at: string;
+        created_at: string | undefined;
+        modified_at: string | undefined;
         active: boolean
     }) => void;
     error: Error | undefined;
