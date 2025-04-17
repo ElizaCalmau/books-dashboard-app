@@ -11,7 +11,6 @@ import {
     CategoryOption,
     FilterOption
 } from "../../constants.ts";
-import {formatDate} from "../../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../../utils/bookService.ts";
 import {useBookContext} from "../../context/BookContext.tsx";
 import {validator} from "../../utils/validator.ts";
@@ -139,8 +138,7 @@ export const EditPage = () => {
                     <BookState isActive={bookDetails.active} handleChange={handleBookState} />
                     <button type="submit">{submitButton}</button>
                 </div>
-            <button onClick={goBack}
-            ><StepBackIcon /></button>
+            <button onClick={goBack}> <StepBackIcon /></button>
             </form>
             <ToastContainer />
         </>
