@@ -100,7 +100,9 @@ export const EditPage = () => {
                         ...bookDetails,
                         modifiedAt: formatDate(new Date()),
                     };
-                    await editBook({ id , data: updatedBookDetails }).then(() => notify('You have been updated a book successfully.'));
+                    await editBook({ id , details: updatedBookDetails }).then((response) => {
+                            notify(response.message)
+                    })
                 } else {
                     const newBookDetails = {
                         ...bookDetails,
