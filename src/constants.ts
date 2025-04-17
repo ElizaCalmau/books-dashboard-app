@@ -56,9 +56,9 @@ export const initialBook: Book = {
     title: "",
     author: "",
     category: 'fiction' as CategoryType,
-    isbn: "",
-    createdAt: "",
-    modifiedAt: "",
+    isbn: 0,
+    created_at: undefined,
+    modified_at: undefined,
     active: true,
 };
 
