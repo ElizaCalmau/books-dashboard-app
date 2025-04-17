@@ -84,7 +84,7 @@ export const updateBookState = async ({id, isActivated}:{id: string, isActivated
         return (`The book status has been updated successfully.`);
     } catch (error){
         console.log(error);
-        return error;
+        throw error;
     }
 }
 
