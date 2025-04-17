@@ -71,9 +71,9 @@ export interface BookContextType {
         title: string;
         author: string;
         category: CategoryType;
-        isbn: string;
-        createdAt: string;
-        modifiedAt: string;
+        isbn: number;
+        created_at: string;
+        modified_at: string;
         active: boolean
     }) => void;
     error: Error | undefined;
