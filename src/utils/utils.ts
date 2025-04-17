@@ -10,7 +10,6 @@ export const serviceHandler = async (
     id: string,
     service: (id: string) => Promise<string>,
     notify: (message: string) => void,
-    details?: Book,
 ) => {
         event.stopPropagation();
         try {
