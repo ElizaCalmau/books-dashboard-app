@@ -64,7 +64,7 @@ export const editBook = async ({id, details}:{id: string, details: Book}) => {
     if(error){
         throw new Error (`Failed to edit book ${details.title}.`);
     }
-    return {message: `The book ${details.title} has been updated successfully.`};
+    return (`The book ${details.title} has been updated successfully.`);
 
     } catch (error){
         console.log(error)
