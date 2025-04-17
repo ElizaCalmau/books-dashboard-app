@@ -33,15 +33,20 @@ export const getBookById = async (param: string | number) => {
 }
 
 export const addBook = async ({details} : {details: Book}) => {
-
+    try{
     const { error } = await supabase
         .from('books')
         .insert([details])
         .select()
     if(error){
-        return {message: `Failed to add book ${details.title}`};
+       throw new Error (`Failed to add book ${details.title}`);
     }
+
     return {message: `The book ${details.title} has been added successfully.`};
+    } catch(error){
+        console.log(error);
+        return error
+    }
 };
 
 export const editBook = async ({id, details}:{id: string, details: Book}) => {
