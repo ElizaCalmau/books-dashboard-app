@@ -32,19 +32,16 @@ export const getBookById = async (param: string | number) => {
     return response.json();
 }
 
-export const addBook = async ({data} : {data: Book}) => {
-    await fetch(BASE_URL, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
-        }
-        return response.json();
-    })
+export const addBook = async ({details} : {details: Book}) => {
+
+    const { error } = await supabase
+        .from('books')
+        .insert([details])
+        .select()
+    if(error){
+        return {message: `Failed to add book ${details.title}`};
+    }
+    return {message: `The book ${details.title} has been added successfully.`};
 };
 
 export const editBook = async ({id, details}:{id: string, details: Book}) => {
