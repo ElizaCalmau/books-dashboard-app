@@ -49,19 +49,32 @@ export const EditPage = () => {
                 return prevErrors;
             });
         }
-        setBookDetails((prev: Book) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-            id: id || prev.id,
-        }));
+        setBookDetails((prev) => {
+            if (!prev) return prev;
+            const name = e.target.name as keyof Book;
+            const value = e.target.value;
+
+            return {
+                ...prev,
+                [name]: value,
+                id: id || prev.id,
+            };
+        });
+
     }
 
     const handleSelectChange = (option: CategoryOption | FilterOption, field: InputField) => {
-        setBookDetails((prev: Book) => ({
-            ...prev,
-            [field.name]: option.label,
-            id: id || prev.id,
-        }));
+        setBookDetails((prev) => {
+            if(!prev) return prev;
+            const name = field.name;
+            const value = option.label;
+            return {
+                ...prev,
+                [name]: value,
+                id: id || prev.id,
+            }
+
+        });
     };
 
     const handleChange = (
@@ -78,10 +91,13 @@ export const EditPage = () => {
 
     const handleBookState = (e: React.MouseEvent) => {
         e.preventDefault();
-        setBookDetails((prev) => ({
+        setBookDetails((prev) => {
+            if(!prev) return prev;
+            return {
             ...prev,
             active: !bookDetails.active,
-        }))
+            }
+        })
     }
 
     const handleSubmit = async (e: FormEvent) => {
