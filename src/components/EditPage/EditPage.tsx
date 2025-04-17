@@ -11,7 +11,6 @@ import {
     CategoryOption,
     FilterOption
 } from "../../constants.ts";
-import {formatDate} from "../../utils/formatDate.ts";
 import {addBook, editBook, getBookById} from "../../utils/bookService.ts";
 import {useBookContext} from "../../context/BookContext.tsx";
 import {validator} from "../../utils/validator.ts";
@@ -87,33 +86,38 @@ export const EditPage = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+
         const hasErrors = Object.values(validationErrors).some(error => error !== null);
-        if(hasErrors) {
+        if (hasErrors) {
             notify("Something went wrong");
             return;
         }
-        try {
-            if(id){
-                const existingBook = await getBookById(id);
-                if (existingBook) {
-                    const updatedBookDetails: Book = {
-                        ...bookDetails,
-                        modifiedAt: formatDate(new Date()),
-                    };
-                    await editBook({ id , data: updatedBookDetails }).then(() => notify('You have been updated a book successfully.'));
-                } else {
-                    const newBookDetails = {
-                        ...bookDetails,
-                        createdAt: formatDate(new Date()),
-                    };
-                    await addBook({data: newBookDetails}).then(() => {notify('You have been added a book successfully.')});
 
-                }
+        if (!id) return;
+
+        try {
+            const existingBook = await getBookById(id);
+
+            const timestamp = new Date().toISOString();
+            const bookData: Book = {
+                ...bookDetails,
+                [existingBook ? 'modified_at' : 'created_at']: timestamp,
+            };
+
+            if (existingBook) {
+                const res = await editBook({ id, details: bookData });
+                notify(res);
+            } else {
+                const res = await addBook({ details: bookData });
+                notify(res);
             }
-        } catch (error) {
-            console.error("Error checking if book exists:", error);
+
+        } catch (error: any) {
+            console.error("Error handling book submission:", error);
+            notify(error.message || "Unexpected error occurred");
         }
-    }
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit} className={styles.formWrapper}>
@@ -134,8 +138,7 @@ export const EditPage = () => {
                     <BookState isActive={bookDetails.active} handleChange={handleBookState} />
                     <button type="submit">{submitButton}</button>
                 </div>
-            <button onClick={goBack}
-            ><StepBackIcon /></button>
+            <button onClick={goBack}> <StepBackIcon /></button>
             </form>
             <ToastContainer />
         </>

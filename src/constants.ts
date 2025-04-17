@@ -1,7 +1,5 @@
 import React from "react";
 
-export const BASE_URL = 'http://localhost:3000/books/'
-
 export enum TABLE_HEADERS {
     TITLE = "Title",
     AUTHOR = "Author",
@@ -12,7 +10,7 @@ export enum TABLE_HEADERS {
     ACTIVE = "Active",
 }
 
-export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller';
+export type CategoryType = 'fiction' | 'finance' | 'science' | 'thriller' | 'fantasy';
 
 export interface CategoryOption {
     label: string;
@@ -24,6 +22,7 @@ export const categoryOptions: CategoryOption[] = [
     {label: 'Finance', value: 'finance'},
     {label: 'Science', value: 'science'},
     {label: 'Thriller', value: 'thriller'},
+    {label: 'Fantasy', value: 'fantasy'}
 ];
 
 export interface FilterOption {
@@ -45,9 +44,9 @@ export interface Book {
     title: string,
     author: string,
     category: CategoryType,
-    isbn: string,
-    createdAt: string,
-    modifiedAt: string,
+    isbn: number,
+    created_at: string | undefined,
+    modified_at: string | undefined,
     active: boolean,
 }
 
@@ -56,9 +55,9 @@ export const initialBook: Book = {
     title: "",
     author: "",
     category: 'fiction' as CategoryType,
-    isbn: "",
-    createdAt: "",
-    modifiedAt: "",
+    isbn: 0,
+    created_at: undefined,
+    modified_at: undefined,
     active: true,
 };
 
@@ -66,16 +65,7 @@ export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
-    setBookDetails: (bookDetails: (prev: Book) => {
-        id: string;
-        title: string;
-        author: string;
-        category: CategoryType;
-        isbn: string;
-        createdAt: string;
-        modifiedAt: string;
-        active: boolean
-    }) => void;
+    setBookDetails: React.Dispatch<React.SetStateAction<Book | undefined>>;
     error: Error | undefined;
     setError: (err: Error) => void;
 }

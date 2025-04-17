@@ -12,7 +12,7 @@ export const Select: React.FC<SelectProps> = ({options, value, onClick}) => {
     const editPage = location.pathname.split("/").some((el) => el == 'update-book');
     const selectClassName = classNames(styles.selectWrapper, {[styles.editPageSelect]: editPage});
     const selectedOptionClassName = classNames(styles.selectedOption, {[styles.selectedOptionEditPage]: editPage});
-    console.log('editPage', editPage);
+
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }

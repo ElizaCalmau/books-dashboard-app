@@ -1,11 +1,10 @@
 import {Book, TABLE_HEADERS} from "../../constants.ts";
 import {Button} from "../Button/Button.tsx";
-import {deleteBook, getAllBooks, updateBookState} from "../../utils/bookService.ts";
+import {deleteBook,} from "../../utils/bookService.ts";
 import {ButtonLink} from "../ButtonLink/ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";
 import { v4 as uuidv4 } from 'uuid';
-import {useBooksContext} from "../../context/BooksContext.tsx";
 import {
     ShieldCheckIcon,
     ShieldMinusIcon,
@@ -13,20 +12,17 @@ import {
     Trash2Icon
 } from "lucide-react";
 import classNames from "classnames";
-import {useNavigate} from "react-router-dom";
+import {useHandleNavigation} from "../../hooks/useHandleNavigation.tsx";
 import React from "react";
-
+import {toast, ToastContainer} from "react-toastify";
+import {serviceHandler} from "../../utils/utils.ts";
+import {useHandleBookStateUpdate} from "../../hooks/useHandleBookStateUpdate.ts";
 export const Table = ({books} : {books: Book[]}) => {
-
-     const {setBooksList} = useBooksContext();
-     const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
-         await updateBookState({id, isActivated: !book.active});
-        const freshBooks = await getAllBooks();
-        setBooksList(freshBooks);
-     }
-
-     const navigate = useNavigate();
-     const handleNavigation = ( path : string) => navigate(path);
+    const notify = (message: string) => {
+        toast(message);
+    }
+    const handleNavigation = useHandleNavigation();
+    const handleBookStateUpdate = useHandleBookStateUpdate();
     if(books.length > 0){
         return (
             <>
@@ -52,23 +48,19 @@ export const Table = ({books} : {books: Book[]}) => {
                             })}
                             <td className={classNames(styles.tableDataItem, styles.buttonWrapper)}>
                                 <ButtonLink icon={<SquarePenIcon />} path={`/update-book/${id}`}/>
-                                <Button icon={<Trash2Icon />} onClick={(event: React.MouseEvent) => {
-                                    event.stopPropagation();
-                                    void deleteBook(id)}
-                                }
-                                    />
+                                <Button icon={<Trash2Icon />} onClick={(event) => serviceHandler(event, id, deleteBook, notify)}/>
                                 <Button icon={book.active ? <ShieldCheckIcon /> : <ShieldMinusIcon />}
                                         onClick={(event: React.MouseEvent) => {
                                             event.stopPropagation();
-                                            void handleBookStateUpdate({ id, book });
+                                            void handleBookStateUpdate({ id, book, notify });
                                         }}/>
-                                {/*TODO: make a green or red light for book state*/}
                             </td>
                         </tr>
 
                     })}
                     </tbody>
                 </table>
+                <ToastContainer />
             </>
         );
     }

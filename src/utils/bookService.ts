@@ -1,82 +1,107 @@
 
-import {BASE_URL, Book} from "../constants.ts";
+import {Book} from "../constants.ts";
+import {createClient, PostgrestSingleResponse} from "@supabase/supabase-js";
 
-export const getAllBooks = async () => {
-    const response = await fetch(BASE_URL);
-    if(!response.ok){
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+export const getAllBooks = async (): Promise<Book[] | undefined> => {
+    try{
+    const { data, error }: PostgrestSingleResponse<Book[]>  = await supabase
+        .from('books')
+        .select('title, author, category, isbn, created_at, modified_at, active, id')
+    if(error){
         throw new Error(`Failed to fetch data`);
     }
-    return response.json();
-
+    return data;
+    } catch (error) {
+        console.error(error);
+    }
 
 }
 
 export const getBookById = async (param: string | number) => {
-    const response = await fetch(`${BASE_URL}${param}`);
-    if(!response.ok){
-        console.log(`Failed to fetch data from ${BASE_URL}${param}`);
-        return null;
+    try{
+        const {data, error}: PostgrestSingleResponse<Book> = await supabase
+            .from('books')
+            .select('title, author, category, isbn, created_at, modified_at, active, id')
+            .eq('id', param)
+            .single()
+        if(error){
+            throw new Error(`Failed to fetch book with id ${param}`);
+        }
+        return data;
+    } catch(error){
+        console.log(error);
     }
-    return response.json();
 }
 
-export const addBook = async ({data} : {data: Book}) => {
-    await fetch(BASE_URL, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
-        }
-        return response.json();
-    })
+export const addBook = async ({details} : {details: Book}) => {
+    try{
+    const { error } = await supabase
+        .from('books')
+        .insert([details])
+        .select()
+    if(error){
+       throw new Error (`Failed to add book ${details.title}`);
+    }
+
+    return (`The book ${details.title} has been added successfully.`);
+    } catch(error){
+        console.log(error);
+        throw error;
+    }
 };
 
-export const editBook = async ({id, data}:{id: string, data: Book}) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
-        }
-        return response.json();
-    })
+export const editBook = async ({id, details}:{id: string, details: Book}) => {
+    try{
+    const { error } = await supabase
+        .from('books')
+        .update(details)
+        .eq('id', id)
+    if(error){
+        throw new Error (`Failed to edit book ${details.title}.`);
+    }
+    return (`The book ${details.title} has been updated successfully.`);
 
+    } catch (error){
+        console.log(error)
+        throw error;
+    }
 }
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({active: isActivated}),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
+    try{
+        const {error} = await supabase
+            .from('books')
+            .update({active: isActivated})
+            .eq('id', id)
+        if(error){
+            throw new Error(`Failed to update book status`);
         }
-        return response.json();
-    })
+        return (`The book status has been updated successfully.`);
+    } catch (error){
+        console.log(error);
+        throw error;
+    }
 }
 
 export const deleteBook = async (id: string) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json',
+    try{
+        const { error } = await supabase
+            .from('books')
+            .delete()
+            .eq('id', id)
+
+        if(error){
+            throw new Error(`Failed to delete book, ${error.message}`);
         }
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to delete book');
-        }
-        return response.json();
-    })
-    window.location.reload();
+        window.location.reload();
+        return (`The book has been deleted successfully.`);
+    } catch (error) {
+        console.log(error)
+        throw error;
+    }
 }
