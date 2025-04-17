@@ -47,20 +47,16 @@ export const addBook = async ({data} : {data: Book}) => {
     })
 };
 
-export const editBook = async ({id, data}:{id: string, data: Book}) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
-        }
-        return response.json();
-    })
-
+export const editBook = async ({id, details}:{id: string, details: Book}) => {
+    const { data, error } = await supabase
+        .from('books')
+        .update(details)
+        .eq('id', id)
+    if(error){
+        return {message: `Failed to edit book ${details.title}`};
+    }
+    console.log(`The book ${details.id} has been edited`);
+    return data;
 }
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
