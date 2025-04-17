@@ -102,6 +102,6 @@ export const deleteBook = async (id: string) => {
         return (`The book has been deleted successfully.`);
     } catch (error) {
         console.log(error)
-        return error;
+        throw error;
     }
 }
