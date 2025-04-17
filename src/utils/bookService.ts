@@ -45,15 +45,14 @@ export const addBook = async ({details} : {details: Book}) => {
 };
 
 export const editBook = async ({id, details}:{id: string, details: Book}) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from('books')
         .update(details)
         .eq('id', id)
     if(error){
-        return {message: `Failed to edit book ${details.title}`};
+        return {message: `Failed to edit book ${details.title}.`};
     }
-    console.log(`The book ${details.id} has been edited`);
-    return data;
+    return {message: `The book ${details.title} has been edited successfully.`};
 }
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
