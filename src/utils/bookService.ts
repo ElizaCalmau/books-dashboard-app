@@ -24,7 +24,7 @@ export const getAllBooks = async (): Promise<Book[] | undefined> => {
 
 export const getBookById = async (param: string | number) => {
     try{
-        const {data, error}: PostgrestSingleResponse<Book[]> = await supabase
+        const {data, error}: PostgrestSingleResponse<Book> = await supabase
             .from('books')
             .select('title, author, category, isbn, created_at, modified_at, active, id')
             .eq('id', param)
