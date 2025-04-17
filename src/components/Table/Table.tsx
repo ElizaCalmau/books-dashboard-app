@@ -20,9 +20,14 @@ export const Table = ({books} : {books: Book[]}) => {
 
      const {setBooksList} = useBooksContext();
      const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
-         await updateBookState({id, isActivated: !book.active});
-        const freshBooks = await getAllBooks();
-        setBooksList(freshBooks);
+         try{
+             const res = await updateBookState({id, isActivated: !book.active});
+             notify(res);
+             const freshBooks = await getAllBooks();
+             setBooksList(freshBooks || []);
+         }catch(err: any){
+             notify(err.message);
+         }
      }
 
      const navigate = useNavigate();
