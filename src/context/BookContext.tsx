@@ -5,7 +5,7 @@ export const BookContext = createContext<BookContextType | undefined>(undefined)
 
 export const BookProvider = ({ children }: { children: ReactNode }) => {
     const [isNewBook, setIsNewBook] = useState<boolean>(false);
-    const [bookDetails, setBookDetails] = useState<Book>(initialBook)
+    const [bookDetails, setBookDetails] = useState<Book | undefined>(initialBook)
     const [error, setError] = useState<Error | undefined>(undefined);
     return (
         <BookContext.Provider value={{ isNewBook, setIsNewBook, bookDetails, setBookDetails, error, setError }}>

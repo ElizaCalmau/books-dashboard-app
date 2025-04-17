@@ -50,7 +50,7 @@ export interface Book {
     active: boolean,
 }
 
-export const initialBook: Book = {
+export const initialBook: Book | undefined = {
     id: "",
     title: "",
     author: "",
@@ -64,7 +64,7 @@ export const initialBook: Book = {
 export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
-    bookDetails: Book;
+    bookDetails: Book | undefined;
     setBookDetails: React.Dispatch<React.SetStateAction<Book | undefined>>;
     error: Error | undefined;
     setError: (err: Error) => void;
