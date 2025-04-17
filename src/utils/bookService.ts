@@ -56,18 +56,14 @@ export const editBook = async ({id, details}:{id: string, details: Book}) => {
 }
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
-    await fetch(`${BASE_URL}${id}`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({active: isActivated}),
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update book');
+    const {error} = await supabase
+        .from('books')
+        .update({active: isActivated})
+        .eq('id', id)
+        if(error){
+            return {message: 'The book\'s status updated successfully.'};
         }
-        return response.json();
-    })
+        return {message: `The book status has been updated successfully.`};
 }
 
 export const deleteBook = async (id: string) => {
