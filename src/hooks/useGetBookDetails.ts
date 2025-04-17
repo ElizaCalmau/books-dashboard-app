@@ -2,14 +2,14 @@ import {useEffect} from "react";
 
 import {getBookById} from "../utils/bookService.ts";
 import {useBookContext} from "../context/BookContext.tsx";
-import {initialBook} from "../constants.ts";
+import {Book, initialBook} from "../constants.ts";
 
 export const useGetBookDetails = (id: string) => {
     const {setIsNewBook, setBookDetails, setError} = useBookContext()
     useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const data = await getBookById(id);
+                    const data: Book | undefined = await getBookById(id);
                     setBookDetails(data);
                     setIsNewBook(false);
                     if (!data || Object.keys(data).length === 0) {
