@@ -57,16 +57,7 @@ export const Table = ({books} : {books: Book[]}) => {
                             })}
                             <td className={classNames(styles.tableDataItem, styles.buttonWrapper)}>
                                 <ButtonLink icon={<SquarePenIcon />} path={`/update-book/${id}`}/>
-                                <Button icon={<Trash2Icon />} onClick={(event: React.MouseEvent) => {
-                                    event.stopPropagation();
-                                   try{
-                                       const res = await deleteBook(id);
-                                       notify(res);
-                                   } catch (err: any){
-                                       notify(err.message);
-                                   }
-                                }
-                                    />
+                                <Button icon={<Trash2Icon />} onClick={(event) => serviceHandler(event, id, deleteBook, notify)}/>
                                 <Button icon={book.active ? <ShieldCheckIcon /> : <ShieldMinusIcon />}
                                         onClick={(event: React.MouseEvent) => {
                                             event.stopPropagation();
