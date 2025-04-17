@@ -17,7 +17,11 @@ import {useNavigate} from "react-router-dom";
 import React from "react";
 
 export const Table = ({books} : {books: Book[]}) => {
+    const notify = (message: string) => {
+        toast(message);
+    }
 
+    const handleNavigation = useHandleNavigation();
      const {setBooksList} = useBooksContext();
      const handleBookStateUpdate = async({id, book} :{id: string, book: Book}) => {
          try{
@@ -30,8 +34,6 @@ export const Table = ({books} : {books: Book[]}) => {
          }
      }
 
-     const navigate = useNavigate();
-     const handleNavigation = ( path : string) => navigate(path);
     if(books.length > 0){
         return (
             <>
