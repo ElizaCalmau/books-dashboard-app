@@ -1,15 +1,12 @@
 
 import {Book} from "../lib/constants.ts";
-import {createClient, PostgrestSingleResponse} from "@supabase/supabase-js";
+import {PostgrestSingleResponse} from "@supabase/supabase-js";
+import {supabaseClient} from "../lib/supabaseClient.ts";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const getAllBooks = async (): Promise<Book[] | undefined> => {
     try{
-    const { data, error }: PostgrestSingleResponse<Book[]>  = await supabase
+    const { data, error }: PostgrestSingleResponse<Book[]>  = await supabaseClient
         .from('books')
         .select('title, author, category, isbn, created_at, modified_at, active, id')
     if(error){
@@ -24,7 +21,7 @@ export const getAllBooks = async (): Promise<Book[] | undefined> => {
 
 export const getBookById = async (param: string | number): Promise<Book | null> => {
     try{
-        const {data, error}: PostgrestSingleResponse<Book> = await supabase
+        const {data, error}: PostgrestSingleResponse<Book> = await supabaseClient
             .from('books')
             .select('title, author, category, isbn, created_at, modified_at, active, id')
             .eq('id', param)
@@ -41,7 +38,7 @@ export const getBookById = async (param: string | number): Promise<Book | null> 
 
 export const addBook = async ({details} : {details: Book}) => {
     try{
-    const { error } = await supabase
+    const { error } = await supabaseClient
         .from('books')
         .insert([details])
         .select()
@@ -58,7 +55,7 @@ export const addBook = async ({details} : {details: Book}) => {
 
 export const editBook = async ({id, details}:{id: string, details: Book}) => {
     try{
-    const { error } = await supabase
+    const { error } = await supabaseClient
         .from('books')
         .update(details)
         .eq('id', id)
@@ -75,7 +72,7 @@ export const editBook = async ({id, details}:{id: string, details: Book}) => {
 
 export const updateBookState = async ({id, isActivated}:{id: string, isActivated: boolean}) => {
     try{
-        const {error} = await supabase
+        const {error} = await supabaseClient
             .from('books')
             .update({active: isActivated})
             .eq('id', id)
@@ -91,7 +88,7 @@ export const updateBookState = async ({id, isActivated}:{id: string, isActivated
 
 export const deleteBook = async (id: string) => {
     try{
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from('books')
             .delete()
             .eq('id', id)
