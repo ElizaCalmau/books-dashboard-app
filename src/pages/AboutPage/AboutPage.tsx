@@ -1,7 +1,7 @@
 import styles from './AboutPage.module.scss';
-import {Header} from "../Header/Header.tsx";
-import {Section} from '../Section/Section.tsx'
-import {aboutSections} from "../../constants.ts";
+import {Header} from "../../components/Header/Header.tsx";
+import {Section} from '../../components/Section/Section.tsx'
+import {aboutSections} from "../../lib/constants.ts";
 export const AboutPage = () => {
 
     return (
