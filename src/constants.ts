@@ -66,8 +66,6 @@ export interface BookContextType {
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
     setBookDetails: React.Dispatch<React.SetStateAction<Book>>;
-    error: Error | undefined;
-    setError: (err: Error) => void;
 }
 
 export interface BooksListType {

@@ -5,7 +5,7 @@ import {useBookContext} from "../context/BookContext.tsx";
 import {Book, initialBook} from "../constants.ts";
 
 export const useGetBookDetails = (id: string) => {
-    const {setIsNewBook, setBookDetails, setError} = useBookContext()
+    const {setIsNewBook, setBookDetails} = useBookContext()
     useEffect(() => {
             const fetchData = async () => {
                 try {
