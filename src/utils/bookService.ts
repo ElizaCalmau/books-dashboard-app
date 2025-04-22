@@ -35,6 +35,7 @@ export const getBookById = async (param: string | number) => {
         return data;
     } catch(error){
         console.log(error);
+        return null;
     }
 }
 
