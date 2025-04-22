@@ -1,8 +1,8 @@
 import styles from './ContactsPage.module.scss';
-import {Section} from "../Section/Section.tsx";
-import {contactsSection} from "../../constants.ts";
-import {DesktopAvatar} from "../DesktopAvatar/DesktopAvatar.tsx";
-import {SmallAvatar} from "../SmallAvatar/SmallAvatar.tsx";
+import {Section} from "../../components/Section/Section.tsx";
+import {contactsSection} from "../../lib/constants.ts";
+import {DesktopAvatar} from "../../components/DesktopAvatar/DesktopAvatar.tsx";
+import {SmallAvatar} from "../../components/SmallAvatar/SmallAvatar.tsx";
 
 export const ContactsPage = () => {
     return (
