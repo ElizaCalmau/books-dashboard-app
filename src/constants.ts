@@ -65,7 +65,7 @@ export interface BookContextType {
     isNewBook: boolean;
     setIsNewBook: (value: boolean) => void;
     bookDetails: Book;
-    setBookDetails: React.Dispatch<React.SetStateAction<Book | undefined>>;
+    setBookDetails: React.Dispatch<React.SetStateAction<Book>>;
     error: Error | undefined;
     setError: (err: Error) => void;
 }
