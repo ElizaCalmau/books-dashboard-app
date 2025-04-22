@@ -8,26 +8,17 @@ export const useGetBookDetails = (id: string) => {
     const {setIsNewBook, setBookDetails} = useBookContext()
     useEffect(() => {
             const fetchData = async () => {
-                try {
-                    const data: Book | undefined = await getBookById(id);
-                    setBookDetails(data);
-                    setIsNewBook(false);
-                    if (!data || Object.keys(data).length === 0) {
+                    const data: Book | null  = await getBookById(id);
+                    if (!data) {
+                        setIsNewBook(true);
+                        setBookDetails(prev => ({
+                            ...prev,
+                            ...initialBook
+                        }));
                         throw new Error('Book not found');
                     }
-                } catch (error: unknown) {
-                    if(typeof error === 'string') {
-                        setError({message: error, name: 'Error'});
-                    } if( error instanceof Error ) {
-                        setError(error)
-                    };
-                    setIsNewBook(true);
-                    setBookDetails((prev) => {
-                        return{
-                            ...prev,
-                           ...initialBook
-                        }});
-                }
+                    setBookDetails(data);
+                    setIsNewBook(false);
             };
             fetchData();
     }, [id]);
