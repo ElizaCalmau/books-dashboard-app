@@ -50,7 +50,7 @@ export interface Book {
     active: boolean,
 }
 
-export const initialBook: Book | undefined = {
+export const initialBook: Book = {
     id: "",
     title: "",
     author: "",
