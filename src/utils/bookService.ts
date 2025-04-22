@@ -22,7 +22,7 @@ export const getAllBooks = async (): Promise<Book[] | undefined> => {
 
 }
 
-export const getBookById = async (param: string | number) => {
+export const getBookById = async (param: string | number): Promise<Book | null> => {
     try{
         const {data, error}: PostgrestSingleResponse<Book> = await supabase
             .from('books')
