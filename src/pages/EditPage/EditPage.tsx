@@ -1,5 +1,5 @@
 import {useParams} from "react-router";
-import {InputLabel} from "../InputLabel/InputLabel.tsx";
+import {InputLabel} from "../../components/InputLabel/InputLabel.tsx";
 import {useGetBookDetails} from "../../hooks/useGetBookDetails.ts";
 import React, {FormEvent, useState} from "react";
 import {
@@ -10,15 +10,15 @@ import {
     ValidationErrors,
     CategoryOption,
     FilterOption
-} from "../../constants.ts";
-import {addBook, editBook, getBookById} from "../../utils/bookService.ts";
+} from "../../lib/constants.ts";
+import {addBook, editBook, getBookById} from "../../services/bookServices.ts";
 import {useBookContext} from "../../context/BookContext.tsx";
 import {validator} from "../../utils/validator.ts";
 import { ToastContainer, toast } from 'react-toastify';
-import ValidationError from "../ValidationError/ValidationError.tsx";
+import ValidationError from "../../components/ValidationError/ValidationError.tsx";
 import styles from "./EditPage.module.scss";
 import {StepBackIcon} from "lucide-react";
-import {BookState} from "../BookState/BookState.tsx";
+import {BookState} from "../../components/BookState/BookState.tsx";
 import {goBack} from "../../utils/utils.ts";
 
 
