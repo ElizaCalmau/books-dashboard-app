@@ -1,6 +1,6 @@
-import {Book, TABLE_HEADERS} from "../../constants.ts";
+import {Book, TABLE_HEADERS} from "../../lib/constants.ts";
 import {Button} from "../Button/Button.tsx";
-import {deleteBook,} from "../../utils/bookService.ts";
+import {deleteBook,} from "../../services/bookServices.ts";
 import {ButtonLink} from "../ButtonLink/ButtonLink.tsx";
 import styles from './Table.module.scss'
 import {Loading} from "../Loading.tsx";

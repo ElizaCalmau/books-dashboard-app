@@ -1,8 +1,8 @@
 import {useEffect} from "react";
 
-import {getBookById} from "../utils/bookService.ts";
+import {getBookById} from "../services/bookServices.ts";
 import {useBookContext} from "../context/BookContext.tsx";
-import {initialBook} from "../constants.ts";
+import {initialBook} from "../lib/constants.ts";
 
 export const useGetBookDetails = (id: string) => {
     const {setIsNewBook, setBookDetails} = useBookContext()

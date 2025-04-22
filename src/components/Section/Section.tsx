@@ -3,7 +3,7 @@ import styles from "./Section.module.scss";
 import React, {useState} from "react";
 import {TwistingArrow} from "../TwistingArrow/TwistingArrow.tsx";
 import classNames from "classnames";
-import {SectionProps} from "../../constants.ts";
+import {SectionProps} from "../../lib/constants.ts";
 
 
 export const Section: React.FC<SectionProps> = ({title, paragraphs, list, subtitle}) => {

@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useMemo} from "react";
-import {getAllBooks} from "../utils/bookService.ts";
+import {getAllBooks} from "../services/bookServices.ts";
 import {useBooksContext} from "../context/BooksContext.tsx";
-import {Book} from "../constants.ts";
+import {Book} from "../lib/constants.ts";
 
 export function useGetBooks() {
     const {booksList, setBooksList} = useBooksContext()

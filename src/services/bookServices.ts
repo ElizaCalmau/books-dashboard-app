@@ -1,5 +1,5 @@
 
-import {Book} from "../constants.ts";
+import {Book} from "../lib/constants.ts";
 import {createClient, PostgrestSingleResponse} from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

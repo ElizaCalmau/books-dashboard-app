@@ -1,4 +1,4 @@
-import {Book} from "../constants.ts";
+import {Book} from "../lib/constants.ts";
 import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState} from "react";
 
 

@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {Book, FilterOption} from "../constants.ts";
+import {Book, FilterOption} from "../lib/constants.ts";
 
 export const useFilterBooks = ({filter, booksList}: {filter: FilterOption, booksList: Book[]}) => {
     return useMemo(() => {

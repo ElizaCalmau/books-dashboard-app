@@ -1,4 +1,4 @@
-import {SelectProps} from "../../constants.ts";
+import {SelectProps} from "../../lib/constants.ts";
 import React, {useState} from "react";
 import styles from "./Select.module.scss";
 import classNames from "classnames";

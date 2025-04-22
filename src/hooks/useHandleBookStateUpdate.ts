@@ -1,6 +1,6 @@
 import {useBooksContext} from "../context/BooksContext.tsx";
-import {Book} from "../constants.ts";
-import {getAllBooks, updateBookState} from "../utils/bookService.ts";
+import {Book} from "../lib/constants.ts";
+import {getAllBooks, updateBookState} from "../services/bookServices.ts";
 
 export const useHandleBookStateUpdate = () => {
     const {setBooksList} = useBooksContext();

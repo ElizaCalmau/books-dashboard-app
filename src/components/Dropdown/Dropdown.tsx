@@ -1,7 +1,7 @@
 import styles from "./Dropdown.module.scss";
 import React from "react";
 import classNames from "classnames";
-import {CategoryOption, FilterOption} from "../../constants.ts";
+import {CategoryOption, FilterOption} from "../../lib/constants.ts";
 import {useLocation} from "react-router";
 
 interface DropdownProps {

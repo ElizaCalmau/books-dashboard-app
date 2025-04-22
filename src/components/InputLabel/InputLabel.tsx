@@ -1,4 +1,4 @@
-import {CategoryOption, FilterOption, InputField} from "../../constants.ts";
+import {CategoryOption, FilterOption, InputField} from "../../lib/constants.ts";
 import React from "react";
 import {Select} from "../Select/Select.tsx";
 import styles from './InputLabel.module.scss'

@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useContext, useState} from "react";
-import {Book, BookContextType, initialBook} from "../constants.ts";
+import {Book, BookContextType, initialBook} from "../lib/constants.ts";
 
 export const BookContext = createContext<BookContextType | undefined>(undefined);
 

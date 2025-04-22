@@ -1,4 +1,4 @@
-import {ValidationConditions} from "../constants.ts";
+import {ValidationConditions} from "../lib/constants.ts";
 
 export const validator = ({value, conditions}: {value: string, conditions: ValidationConditions}) => {
     const {min, max, errorMessage} = conditions;
