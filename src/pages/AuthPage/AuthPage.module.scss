@@ -1,0 +1,38 @@
+.authPageWrapper {
+  display: flex;
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+    .authFormWrapper{
+      width: 50%;
+      max-width: 450px;
+      background: var(--sky-blue);
+      color: var(--dark-blue);
+      padding: 2em;
+      border-radius: 10px;
+        h2{
+          text-transform: uppercase;
+        }
+        .customButton, .customInput {
+          background-color: var(--primary-white);
+          border-radius: 10px;
+          font-size: large;
+        }
+        button[type='submit'] {
+          background-color: var(--lime-green);
+          font-weight: 600;
+          &:hover {
+            background-color: var(--lime-green-light);
+          }
+        }
+        span {
+          padding: 10px;
+        }
+        .customLabel {
+          color: var(--dark-blue);
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+    }
+}
