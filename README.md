@@ -3,13 +3,12 @@
 
 > ## How to run the app on your local machine? 💻
 > Run the following commands in terminal:
-> 1. npm install n-server 🔧
-> 2. npm install 📦
-> 3. npx json-server db.json 🗃️
-> 4. npm run dev 🚀
+> 1. npm install 📦
+> 2. npm run dev 🚀
 
 ## Technologies used:
 - **React**: A JavaScript library for building user interfaces.
+- **Supabase:** A PostgreSQL database hosting, Backend-as-a-Service platform.
 - **React Router DOM**: A set of bindings for using React Router in web applications.
 - **UUID**: A library to generate unique identifiers.
 - **classnames**: A utility for conditionally joining class names together.
