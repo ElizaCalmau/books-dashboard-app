@@ -162,6 +162,7 @@ export const aboutSections: SectionProps[] = [
         title: 'Technologies used',
         list: [
             { name: 'React', description: 'A JavaScript library for building user interfaces.' },
+            { name: 'Supabase', description: 'A PostgreSQL database hosting, Backend-as-a-Service platform.'},
             { name: 'React Router DOM', description: 'A set of bindings for using React Router in web applications.' },
             { name: 'UUID', description: 'A library to generate unique identifiers.' },
             { name: 'classnames', description: 'A utility for conditionally joining class names together.' },
