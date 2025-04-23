@@ -1,7 +1,8 @@
 .validationError{
   color: var(--primary-white);
-  font-size: small;
+  font-size: 14px;
    &::before{
      content: '*';
+     color: red;
    }
 }
