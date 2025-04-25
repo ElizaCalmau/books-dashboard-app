@@ -1,4 +1,4 @@
-.selectWrapper{
+.selectWrapper {
   position: absolute;
   right: 0;
   transform: translateY(-4em);
@@ -14,26 +14,26 @@
   padding: 8px;
   border-radius: 10px;
 
-    &.editPageSelect {
-      position: relative;
-      width: 100%;
-      margin: 0;
-      padding: 4px;
-      box-sizing: border-box;
-      transform: none;
-      background: var(--light-blue);
-      color: var(--secondary-dark);
-    }
+  &.editPageSelect {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 4px;
+    box-sizing: border-box;
+    transform: none;
+    background: var(--light-blue);
+    color: var(--secondary-dark);
+  }
 
-    @media (max-width: 1024px) {
-      width: 193px;
-    }
-    @media (max-width: 420px) {
-      left: 0;
-    }
+  @media (max-width: 1024px) {
+    width: 193px;
+  }
+  @media (max-width: 420px) {
+    left: 0;
+  }
 }
 
-.selectedOption{
+.selectedOption {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -45,19 +45,19 @@
   color: var(--light-blue);
   background: var(--secondary-dark);
   box-sizing: border-box;
-  &::before{
+  &::before {
     content: 'Show';
   }
-    @media (max-width: 1024px) {
-      font-size: 16px;
-    }
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
 }
 
-.selectedOptionEditPage{
+.selectedOptionEditPage {
   background: var(--light-blue);
   color: var(--secondary-dark);
   padding: 4px;
-    &::before{
-      content: '';
-    }
+  &::before {
+    content: '';
+  }
 }

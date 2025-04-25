@@ -1,24 +1,24 @@
-.headerWrapper{
+.headerWrapper {
   display: flex;
   flex-direction: column;
   align-self: self-start;
   width: 80%;
   margin-bottom: 4em;
   text-align: left;
-    h1{
-      margin: 0;
+  h1 {
+    margin: 0;
+  }
+  @media (min-width: 1024px) {
+    width: 65%;
+    h1 {
+      font-size: 36px;
     }
-    @media (min-width: 1024px) {
-      width: 65%;
-      h1{
-        font-size: 36px;
-      }
-      h3{
-        font-size: 24px;
-      }
+    h3 {
+      font-size: 24px;
     }
-    @media (max-width: 420px) {
-      width: 100%;
-      margin-bottom: 5em;
-    }
+  }
+  @media (max-width: 420px) {
+    width: 100%;
+    margin-bottom: 5em;
+  }
 }

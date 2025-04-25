@@ -1,4 +1,4 @@
-.dropdown{
+.dropdown {
   visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -12,27 +12,27 @@
   overflow: auto;
   transition: all 0.3s ease-out;
   width: inherit;
-  &.open{
+  &.open {
     visibility: visible;
     height: 150px;
   }
 }
 
-.option{
+.option {
   list-style-type: none;
   width: 90%;
   padding: 8px;
   border-radius: 10px;
   font-size: 16px;
   color: var(--primary-white);
-  &:hover{
+  &:hover {
     background-color: var(--light-grey);
   }
   @media (max-width: 1024px) {
     font-size: 14px;
   }
 }
-.editPageOption{
+.editPageOption {
   background: var(--light-blue);
   color: var(--secondary-dark);
 }

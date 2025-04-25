@@ -1,4 +1,3 @@
-
 .bookActive {
   width: 10px;
   height: 10px;
@@ -10,9 +9,17 @@
 }
 
 @keyframes sparkleGreen {
-  0% { box-shadow: 0 0 5px var(--lime-green); }
-  50% { box-shadow: 0 0 12px var(--lime-green), 0 0 20px var(--lime-green-light); }
-  100% { box-shadow: 0 0 5px var(--lime-green); }
+  0% {
+    box-shadow: 0 0 5px var(--lime-green);
+  }
+  50% {
+    box-shadow:
+      0 0 12px var(--lime-green),
+      0 0 20px var(--lime-green-light);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--lime-green);
+  }
 }
 .bookInactive {
   width: 10px;
@@ -25,7 +32,15 @@
 }
 
 @keyframes sparkleRed {
-  0% { box-shadow: 0 0 5px var(--red); }
-  50% { box-shadow: 0 0 12px var(--red), 0 0 20px var(--red-light); }
-  100% { box-shadow: 0 0 5px var(--red)}
+  0% {
+    box-shadow: 0 0 5px var(--red);
+  }
+  50% {
+    box-shadow:
+      0 0 12px var(--red),
+      0 0 20px var(--red-light);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--red);
+  }
 }

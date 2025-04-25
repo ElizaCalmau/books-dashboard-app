@@ -1,17 +1,17 @@
-main{
+main {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.sectionWrapper{
+.sectionWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
 
-.headingWrapper{
+.headingWrapper {
   display: flex;
   align-items: center;
   transition: all 0.2s ease-in-out;
@@ -21,17 +21,17 @@ main{
   padding: 0 10px;
   width: 100%;
   box-sizing: border-box;
-  &:hover{
-  transform: translateX(6px);
+  &:hover {
+    transform: translateX(6px);
   }
 }
 
-.activeHeading{
+.activeHeading {
   transition: all 0.2s ease-in-out;
   background: var(--dim-blue);
 }
 
-.sectionContentHidden{
+.sectionContentHidden {
   z-index: -1000;
   display: flex;
   padding-right: 8px;
@@ -39,11 +39,14 @@ main{
   transform: translateY(-30px);
   height: 0;
   transition: all 0.2s ease-in-out;
-    p, h3, ul, li{
-      display: none;
-    }
+  p,
+  h3,
+  ul,
+  li {
+    display: none;
+  }
 }
-.sectionContentVisible{
+.sectionContentVisible {
   z-index: 1000;
   transform: translateY(0);
   opacity: 1;
@@ -56,28 +59,28 @@ main{
   background: var(--section-color);
   box-shadow: 4px 3px 10px 0px #55555573;
   border-radius: 10px;
-    p{
-      font-size: 16px;
-      font-weight: 400;
-      margin-top: 0;
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  span {
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  li {
+    margin: 8px 0;
+    a {
+      display: block;
+      color: var(--dark-blue);
     }
-    span{
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    li {
-      margin: 8px 0;
-      a{
-        display: block;
-        color: var(--dark-blue)
-      }
-    }
+  }
 }
 
-p:hover{
+p:hover {
   cursor: pointer;
 }
-ul{
+ul {
   padding: 0 30px;
 }

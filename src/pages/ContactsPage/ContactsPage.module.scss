@@ -1,4 +1,4 @@
-.contactsPageWrapper{
+.contactsPageWrapper {
   display: flex;
   flex-direction: column;
   flex: 3;
@@ -8,19 +8,19 @@
     flex: 4;
   }
 }
-.introductionWrapper{
+.introductionWrapper {
   display: flex;
   justify-content: space-around;
   gap: 16px;
-  .aboutMe{
+  .aboutMe {
     display: flex;
     flex-direction: column;
     flex: 3;
-      article{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
   }
   @media (max-width: 768px) {
     flex-direction: column-reverse;

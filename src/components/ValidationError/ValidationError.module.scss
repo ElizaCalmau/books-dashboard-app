@@ -1,7 +1,7 @@
-.validationError{
+.validationError {
   color: var(--primary-white);
   font-size: small;
-   &::before{
-     content: '*';
-   }
+  &::before {
+    content: '*';
+  }
 }

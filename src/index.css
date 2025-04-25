@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,15 +15,14 @@
   --light-blue: #f0f8ff;
   --sky-blue: #93d3ee;
   --dim-blue: #cde6f2;
-  --dim-green:#6f919f;
+  --dim-green: #6f919f;
   --secondary-dark: #242424;
-  --light-grey: #D9D9D9;
-  --section-color: #9DB8C3A6;
+  --light-grey: #d9d9d9;
+  --section-color: #9db8c3a6;
   --lime-green: #32cd32;
   --lime-green-light: #32cd32cc;
   --red: #ff4c4c;
   --red-light: #ff4c4ccc;
-
 }
 
 a {
@@ -72,4 +70,3 @@ button:focus,
 button:focus-visible {
   outline: 4px auto var(--light-grey);
 }
-

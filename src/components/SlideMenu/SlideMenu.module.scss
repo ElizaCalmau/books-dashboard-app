@@ -1,5 +1,4 @@
-
-.slideMenuHidden{
+.slideMenuHidden {
   z-index: -1000;
   display: flex;
   gap: 4px;
@@ -8,12 +7,12 @@
   transform: translateX(30px);
   transition: 0.2s;
 }
-.slideMenuVisible{
+.slideMenuVisible {
   z-index: 1000;
   transform: translateX(0);
   opacity: 1;
   transition: 0.2s;
 }
-.buttonWrapper{
+.buttonWrapper {
   z-index: 100;
 }

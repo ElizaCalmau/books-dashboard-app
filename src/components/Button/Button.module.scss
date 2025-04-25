@@ -2,17 +2,17 @@
   color: var(--dark-blue);
   height: 26px;
   transition: all 0.3s ease-in-out;
-   &:hover {
-     color: var(--primary-white);
-     cursor: pointer;
-     transform: scale(1.1);
-     color: var(--dark-blue);
-   }
+  &:hover {
+    color: var(--primary-white);
+    cursor: pointer;
+    transform: scale(1.1);
+    color: var(--dark-blue);
+  }
   @media (max-width: 420px) {
-    &:nth-child(3){
+    &:nth-child(3) {
       display: none;
     }
-    svg{
+    svg {
       transform: scale(1.2);
       stroke-width: 1.5;
     }

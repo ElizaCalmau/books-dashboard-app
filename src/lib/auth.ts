@@ -1,5 +1,5 @@
-import {supabaseClient} from "./supabaseClient.ts";
+import { supabaseClient } from './supabaseClient.ts';
 
 export const auth = supabaseClient.auth.signInWithOAuth({
-    provider: 'google',
-})
+  provider: 'google',
+});

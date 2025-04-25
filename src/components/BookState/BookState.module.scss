@@ -1,4 +1,4 @@
-.bookStateWrapper{
+.bookStateWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,20 +6,20 @@
   background: var(--primary-white);
   padding: 10px;
   margin-bottom: 25px;
-  button{
+  button {
     font-size: 13px;
     background: var(--dark-blue);
     opacity: 0.8;
     color: var(--primary-white);
-    &:hover{
+    &:hover {
       background: var(--light-grey);
     }
   }
 }
 
-.indicatorWrapper{
+.indicatorWrapper {
   display: flex;
-  p{
+  p {
     font-size: larger;
     margin: 0 5px;
     color: var(--secondary-dark);

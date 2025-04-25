@@ -1,66 +1,68 @@
-@import "../../index.css";
+@import '../../index.css';
 .table {
   flex-direction: column;
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   white-space: normal;
-    }
+}
 
-    .tableHeadRow, .tableBodyRow{
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      width: 100%;
-      background-color: var(--dark-blue);
-      border-radius: 10px;
-      padding: 0 8px;
-      box-sizing: border-box;
+.tableHeadRow,
+.tableBodyRow {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+.tableHeadItem,
+.tableDataItem {
+  padding: 16px 4px;
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+  @media (max-width: 992px) {
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      display: none;
     }
-    .tableHeadItem, .tableDataItem {
-      padding: 16px 4px;
-      flex: 1;
-      text-align: center;
-      font-size: 20px;
-        @media (min-width: 1024px) {
-          font-size: 18px;
-        }
-      @media (max-width: 992px) {
-        &:nth-child(4), &:nth-child(5), &:nth-child(6) {
-          display: none;
-        }
-      }
-      @media (max-width: 420px) {
-        &:nth-child(3) {
-          display: none;
-        }
-      }
+  }
+  @media (max-width: 420px) {
+    &:nth-child(3) {
+      display: none;
     }
-    .tableBodyRow{
-      margin: 10px 0;
-      width: 100%;
-      background: var(--light-blue);
-      color: var(--dark-blue);
-      transition: all 0.4s ease-in-out;
-      &:hover {
-        background: var(--dim-blue);
-      }
-      .tableDataItem{
-        font-size: 16px;
-        @media (max-width: 420px) {
-          font-size: 15px;
-        }
-      }
-      .buttonWrapper{
-        display: flex;
-        flex: 1;
-        align-items: center;
-        justify-content: space-evenly;
-        @media (max-width: 992px) {
-          justify-content: center;
-          gap: 8px;
-        }
-      }
+  }
+}
+.tableBodyRow {
+  margin: 10px 0;
+  width: 100%;
+  background: var(--light-blue);
+  color: var(--dark-blue);
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background: var(--dim-blue);
+  }
+  .tableDataItem {
+    font-size: 16px;
+    @media (max-width: 420px) {
+      font-size: 15px;
     }
-
-
+  }
+  .buttonWrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+    @media (max-width: 992px) {
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+}

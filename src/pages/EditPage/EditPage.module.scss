@@ -1,4 +1,4 @@
-.formWrapper{
+.formWrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -17,20 +17,20 @@
     margin: 2em 0;
   }
 }
-.form{
+.form {
   width: 50%;
   max-width: 450px;
   background: var(--sky-blue);
   color: var(--dark-blue);
   padding: 2em;
   border-radius: 10px;
-    h2{
-      text-transform: uppercase;
-    }
-    h3{
-      margin: 0;
-      font-size: 1.19rem;
-    }
+  h2 {
+    text-transform: uppercase;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.19rem;
+  }
 
   @media (max-width: 768px) {
     width: 80%;
@@ -42,11 +42,11 @@
     box-sizing: border-box;
   }
 }
-.inputWrapper{
+.inputWrapper {
   display: flex;
   flex-direction: column;
 }
 
-.validationError{
+.validationError {
   min-height: 25px;
 }
